@@ -46,10 +46,7 @@ func convert(c *cli.Context) error {
 		return err
 	}
 
-	output, err := ntn.Convert(input)
-	if err != nil {
-		return err
-	}
+	output := ntn.IntegerToFrench(input)
 
 	fmt.Println(output)
 	return nil
