@@ -2,7 +2,6 @@ package ntn
 
 import (
 	"fmt"
-	"log"
 	"strings"
 )
 
@@ -13,7 +12,7 @@ var frenchTeens = []string{"dix", "onze", "douze", "treize", "quatorze", "quinze
 
 // IntegerToFrench converts an integer to French words
 func IntegerToFrench(input int) string {
-	log.Printf("Input: %d\n", input)
+	//log.Printf("Input: %d\n", input)
 	words := []string{}
 
 	if input < 0 {
@@ -23,7 +22,7 @@ func IntegerToFrench(input int) string {
 
 	// split integer in triplets
 	triplets := integerToTriplets(input)
-	log.Printf("Triplets: %v\n", triplets)
+	//log.Printf("Triplets: %v\n", triplets)
 
 	// zero is a special case
 	if len(triplets) == 0 {
@@ -33,7 +32,7 @@ func IntegerToFrench(input int) string {
 	// iterate over triplets
 	for idx := len(triplets) - 1; idx >= 0; idx-- {
 		triplet := triplets[idx]
-		log.Printf("Triplet: %d (idx=%d)\n", triplet, idx)
+		//log.Printf("Triplet: %d (idx=%d)\n", triplet, idx)
 
 		// nothing todo for empty triplet
 		if triplet == 0 {
@@ -44,7 +43,7 @@ func IntegerToFrench(input int) string {
 		hundreds := triplet / 100 % 10
 		tens := triplet / 10 % 10
 		units := triplet % 10
-		log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
+		//log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
 		if hundreds > 0 {
 			if hundreds == 1 {
 				words = append(words, "cent")
@@ -105,6 +104,6 @@ func IntegerToFrench(input int) string {
 		}
 	}
 
-	log.Printf("Words length: %d\n", len(words))
+	//log.Printf("Words length: %d\n", len(words))
 	return strings.Join(words, " ")
 }
