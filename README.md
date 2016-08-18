@@ -37,7 +37,7 @@ GLOBAL OPTIONS:
 
 ## API usage
 
-```golang
+```go
 import "github.com/moul/number-to-words"
 
 fmt.Println(ntw.IntegerToFrench(42))
