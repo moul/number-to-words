@@ -1,10 +1,16 @@
 package ntn
 
 import (
+	"fmt"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
 )
+
+func ExampleIntegerToFrench() {
+	fmt.Println(IntegerToFrench(42))
+	// Output: quarante-deux
+}
 
 func TestIntegerToFrench(t *testing.T) {
 	Convey("Testing IntegerToFrench()", t, FailureContinues, func() {
