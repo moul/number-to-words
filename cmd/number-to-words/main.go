@@ -21,6 +21,12 @@ func main() {
 	// FIXME: enable autocomplete
 
 	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:   "lang, l",
+			EnvVar: "NTW_LANGUAGE",
+			Usage:  "Set language",
+			Value:  "en",
+		},
 		cli.BoolFlag{
 			Name:   "debug, D",
 			EnvVar: "NTW_DEBUG",
@@ -46,7 +52,19 @@ func convert(c *cli.Context) error {
 		return err
 	}
 
-	output := ntw.IntegerToFrench(input)
+	var output string
+	switch lang := c.String("lang"); lang {
+	case "en", "english":
+		output = ntw.IntegerToEnglish(input)
+		break
+	case "fr", "french":
+		output = ntw.IntegerToFrench(input)
+		break
+	default:
+		fmt.Fprintf(os.Stderr, "Unknown language: %s\n", lang)
+		os.Exit(1)
+		break
+	}
 
 	fmt.Println(output)
 	return nil
