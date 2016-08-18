@@ -5,9 +5,9 @@ import (
 	"strings"
 )
 
-var frenchMegas = []string{"", "mille", "million", "milliard", "billiard", "trillion", "trilliard", "quadrillion", "quadrilliard", "quintillion", "quintilliard"}
+var frenchMegas = []string{"", "mille", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "quadrillion", "quadrilliard", "quintillion", "quintilliard"}
 var frenchUnits = []string{"", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"}
-var frenchTens = []string{"", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante", "quatre-ving", "quatre-vingt"}
+var frenchTens = []string{"", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante", "quatre-vingt", "quatre-vingt"}
 var frenchTeens = []string{"dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"}
 
 // IntegerToFrench converts an integer to French words
@@ -39,6 +39,12 @@ func IntegerToFrench(input int) string {
 			continue
 		}
 
+		// special cases
+		if triplet == 1 && idx == 1 {
+			words = append(words, "mille")
+			continue
+		}
+
 		// three-digits
 		hundreds := triplet / 100 % 10
 		tens := triplet / 10 % 10
@@ -48,13 +54,16 @@ func IntegerToFrench(input int) string {
 			if hundreds == 1 {
 				words = append(words, "cent")
 			} else {
-				words = append(words, frenchUnits[hundreds], "cent")
+				if tens == 0 && units == 0 {
+					words = append(words, frenchUnits[hundreds], "cents")
+					continue
+				} else {
+					words = append(words, frenchUnits[hundreds], "cent")
+				}
 			}
 		}
 
-		// special cases
-		if triplet == 1 && idx == 1 {
-			words = append(words, "mille")
+		if tens == 0 && units == 0 {
 			continue
 		}
 
@@ -64,7 +73,7 @@ func IntegerToFrench(input int) string {
 		case 1:
 			words = append(words, frenchTeens[units])
 			break
-		case 7, 9:
+		case 7:
 			switch units {
 			case 1:
 				words = append(words, frenchTens[tens], "et", frenchTeens[units])
@@ -76,7 +85,18 @@ func IntegerToFrench(input int) string {
 			}
 			break
 		case 8:
-			words = append(words, frenchTens[tens], frenchUnits[units])
+			switch units {
+			case 0:
+				words = append(words, frenchTens[tens]+"s")
+				break
+			default:
+				words = append(words, frenchTens[tens], frenchUnits[units])
+				break
+			}
+			break
+		case 9:
+			word := fmt.Sprintf("%s-%s", frenchTens[tens], frenchTeens[units])
+			words = append(words, word)
 			break
 		default:
 			switch units {
