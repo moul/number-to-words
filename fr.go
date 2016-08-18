@@ -49,8 +49,14 @@ func IntegerToFrench(input int) string {
 			if hundreds == 1 {
 				words = append(words, "cent")
 			} else {
-				words = append(words, frenchUnits[hundreds], "cents")
+				words = append(words, frenchUnits[hundreds], "cent")
 			}
+		}
+
+		// special cases
+		if triplet == 1 && idx == 1 {
+			words = append(words, "mille")
+			continue
 		}
 
 		switch tens {
@@ -60,32 +66,41 @@ func IntegerToFrench(input int) string {
 			words = append(words, frenchTeens[units])
 			break
 		case 7, 9:
-			if units == 1 {
+			switch units {
+			case 1:
 				words = append(words, frenchTens[tens], "et", frenchTeens[units])
-			} else {
+				break
+			default:
 				word := fmt.Sprintf("%s-%s", frenchTens[tens], frenchTeens[units])
 				words = append(words, word)
+				break
 			}
 			break
 		case 8:
 			words = append(words, frenchTens[tens], frenchUnits[units])
 			break
 		default:
-			if units == 1 {
+			switch units {
+			case 0:
+				words = append(words, frenchTens[tens])
+				break
+			case 1:
 				words = append(words, frenchTens[tens], "et", frenchUnits[units])
-			} else {
+				break
+			default:
 				word := fmt.Sprintf("%s-%s", frenchTens[tens], frenchUnits[units])
 				words = append(words, word)
+				break
 			}
 			break
 		}
 
 		// mega
 		mega := frenchMegas[idx]
-		if mega != "" && triplet > 1 {
-			mega += "s"
-		}
 		if mega != "" {
+			if mega != "mille" && triplet > 1 {
+				mega += "s"
+			}
 			words = append(words, mega)
 		}
 	}
