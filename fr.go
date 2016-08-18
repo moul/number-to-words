@@ -1,4 +1,4 @@
-package ntn
+package ntw
 
 import (
 	"fmt"

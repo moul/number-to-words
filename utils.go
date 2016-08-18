@@ -1,4 +1,4 @@
-package ntn
+package ntw
 
 func integerToTriplets(number int) []int {
 	triplets := []int{}

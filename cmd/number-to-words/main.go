@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/moul/ntn"
+	"github.com/moul/number-to-words"
 	"github.com/urfave/cli"
 )
 
@@ -15,15 +15,15 @@ func main() {
 	app := cli.NewApp()
 	app.Name = path.Base(os.Args[0])
 	app.Author = "Manfred Touron"
-	app.Email = "https://github.com/moul/ntn"
-	app.Version = ntn.Version
+	app.Email = "https://github.com/moul/number-to-words"
+	app.Version = ntw.Version
 	app.Usage = "number to number"
 	// FIXME: enable autocomplete
 
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
 			Name:   "debug, D",
-			EnvVar: "NTN_DEBUG",
+			EnvVar: "NTW_DEBUG",
 			Usage:  "Enable debug mode",
 		},
 	}
@@ -37,7 +37,7 @@ func convert(c *cli.Context) error {
 	}
 
 	if len(c.Args()) != 1 {
-		return fmt.Errorf("usage: ntn <number>")
+		return fmt.Errorf("usage: number-to-words <number>")
 	}
 
 	inputStr := c.Args()[0]
@@ -46,7 +46,7 @@ func convert(c *cli.Context) error {
 		return err
 	}
 
-	output := ntn.IntegerToFrench(input)
+	output := ntw.IntegerToFrench(input)
 
 	fmt.Println(output)
 	return nil
