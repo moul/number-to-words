@@ -13,6 +13,11 @@ $(NAME): $(SOURCE)
 build: $(NAME)
 
 
+.PHONY: docker
+docker:
+	docker build -t moul/number-to-words .
+
+
 .PHONY: test
 test:
 	go test -v .
