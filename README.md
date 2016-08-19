@@ -9,6 +9,8 @@
 ```console
 $ number-to-words --lang=fr 42
 quarante-deux
+$ number-to-words --lang=it 42
+quarantadue
 $ number-to-words --lang=en 42
 forty-two
 $ number-to-words 42
@@ -32,7 +34,6 @@ AUTHOR(S):
 COMMANDS:
 GLOBAL OPTIONS:
    --lang value, -l value   Set language (default: "en") [$NTW_LANGUAGE]
-   --debug, -D              Enable debug mode [$NTW_DEBUG]
    --help, -h               show help
    --version, -v            print the version
 ```
@@ -47,6 +48,9 @@ fmt.Println(ntw.IntegerToFrench(42))
 
 fmt.Println(ntw.IntegerToEnglish(42))
 // Outputs: forty-two
+
+fmt.Println(ntw.IntegerToItalian(42))
+// Outputs: quarantadue
 ```
 
 ## License
