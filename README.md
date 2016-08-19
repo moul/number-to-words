@@ -53,6 +53,23 @@ fmt.Println(ntw.IntegerToItalian(42))
 // Outputs: quarantadue
 ```
 
+## Install
+
+#### Using Golang
+
+1. install and configure go on your host
+2. get and build: `go get github.com/moul/number-to-words/cmd/number-to-words`
+3. profit: `$GOPATH/bin/number-to-words 42`
+
+#### Using Homebrew
+
+coming soon
+
+#### Using Docker
+
+1. install and configure docker on your host
+2. profit: `docker run --rm moul/number-to-words 42`
+
 ## License
 
 MIT
