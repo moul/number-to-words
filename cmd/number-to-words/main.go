@@ -6,7 +6,6 @@ import (
 	"path"
 	"strconv"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/moul/number-to-words"
 	"github.com/urfave/cli"
 )
@@ -27,21 +26,12 @@ func main() {
 			Usage:  "Set language",
 			Value:  "en",
 		},
-		cli.BoolFlag{
-			Name:   "debug, D",
-			EnvVar: "NTW_DEBUG",
-			Usage:  "Enable debug mode",
-		},
 	}
 	app.Action = convert
 	app.Run(os.Args)
 }
 
 func convert(c *cli.Context) error {
-	if c.Bool("debug") {
-		logrus.SetLevel(logrus.DebugLevel)
-	}
-
 	if len(c.Args()) != 1 {
 		return fmt.Errorf("usage: number-to-words <number>")
 	}
