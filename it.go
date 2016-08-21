@@ -16,7 +16,7 @@ func IntegerToItalian(input int) string {
 	words := []string{}
 
 	if input < 0 {
-		words = append(words, "minus")
+		words = append(words, "meno")
 		input *= -1
 	}
 

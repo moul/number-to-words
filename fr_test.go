@@ -80,6 +80,7 @@ func TestIntegerToFrench(t *testing.T) {
 			So(IntegerToFrench(input), ShouldEqual, expectedOutput)
 		}
 
-		// FIXME: test negative values
+		// testing negative values
+		So(IntegerToFrench(-1), ShouldEqual, "moins un")
 	})
 }

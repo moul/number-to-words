@@ -63,6 +63,7 @@ func TestIntegerToItalian(t *testing.T) {
 			So(IntegerToItalian(input), ShouldEqual, expectedOutput)
 		}
 
-		// FIXME: test negative values
+		// testing negative values
+		So(IntegerToItalian(-1), ShouldEqual, "meno uno")
 	})
 }
