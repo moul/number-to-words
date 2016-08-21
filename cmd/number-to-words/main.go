@@ -53,6 +53,9 @@ func convert(c *cli.Context) error {
 	case "it", "italian":
 		output = ntw.IntegerToItalian(input)
 		break
+	case "roman":
+		output = ntw.IntegerToRoman(input)
+		break
 	default:
 		fmt.Fprintf(os.Stderr, "Unknown language: %s\n", lang)
 		os.Exit(1)
