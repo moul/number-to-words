@@ -4,6 +4,18 @@
 [![Coverage Status](https://coveralls.io/repos/github/moul/number-to-words/badge.svg?branch=master)](https://coveralls.io/github/moul/number-to-words?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/moul/number-to-words)](https://goreportcard.com/report/github.com/moul/number-to-words)
 
+Convert numbers to words.
+
+Converti les nombres en lettres.
+
+## Supported languages / Langues supportées
+
+* English [en]
+* Français [fr]
+* Italiano [it]
+* Roman numbers
+
+
 ## CLI usage
 
 ```console
