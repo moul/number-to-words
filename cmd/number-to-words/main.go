@@ -5,6 +5,7 @@ import (
 	"os"
 	"path"
 	"strconv"
+	"strings"
 
 	"github.com/moul/number-to-words"
 	"github.com/urfave/cli"
@@ -42,26 +43,31 @@ func convert(c *cli.Context) error {
 		return err
 	}
 
-	var output string
-	switch lang := c.String("lang"); lang {
-	case "en", "english":
-		output = ntw.IntegerToEnglish(input)
-		break
-	case "fr", "french":
-		output = ntw.IntegerToFrench(input)
-		break
-	case "it", "italian":
-		output = ntw.IntegerToItalian(input)
-		break
-	case "roman":
-		output = ntw.IntegerToRoman(input)
-		break
-	default:
+	found := false
+	var output []string
+	lang := c.String("lang")
+
+	if lang == "en" || lang == "english" || lang == "all" {
+		output = append(output, ntw.IntegerToEnglish(input))
+		found = true
+	}
+	if lang == "fr" || lang == "french" || lang == "all" {
+		output = append(output, ntw.IntegerToFrench(input))
+		found = true
+	}
+	if lang == "it" || lang == "italian" || lang == "all" {
+		output = append(output, ntw.IntegerToItalian(input))
+		found = true
+	}
+	if lang == "roman" || lang == "all" {
+		output = append(output, ntw.IntegerToRoman(input))
+		found = true
+	}
+	if !found {
 		fmt.Fprintf(os.Stderr, "Unknown language: %s\n", lang)
 		os.Exit(1)
-		break
 	}
 
-	fmt.Println(output)
+	fmt.Println(strings.Join(output, "\n"))
 	return nil
 }
