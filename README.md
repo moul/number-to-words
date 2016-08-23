@@ -33,6 +33,34 @@ XLII
 
 $ number-to-words 42
 forty-two
+
+$ number-to-words --lang=all 42
+forty-two
+quarante-deux
+quarantadue
+XLII
+
+$ number-to-words --lang=all 1
+one
+un
+uno
+I
+
+$ number-to-words --lang=all 1337
+one thousand three hundred thirty-seven
+mille trois cent trente-sept
+uno mille trecento trentasette
+MCCCXXXVII
+
+$ number-to-words --lang=all 1234567890
+one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
+un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
+uno miliardo duecento trentaquattro milione cinquecento sessentasette mille ottocento novanta
+
+$ number-to-words --lang=all 1000000000000
+one quadrillion
+un billiard
+uno quadrillion
 ```
 
 ```console
