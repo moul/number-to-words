@@ -59,6 +59,10 @@ func convert(c *cli.Context) error {
 		output = append(output, ntw.IntegerToItalian(input))
 		found = true
 	}
+	if lang == "se" || lang == "swedish" || lang == "all" {
+		output = append(output, ntw.IntegerToSwedish(input))
+		found = true
+	}
 	if lang == "roman" || lang == "all" {
 		output = append(output, ntw.IntegerToRoman(input))
 		found = true

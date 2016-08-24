@@ -13,6 +13,7 @@ Converti les nombres en lettres.
 * English [en]
 * Français [fr]
 * Italiano [it]
+* Swedish [se]
 * Roman numbers
 
 
@@ -28,6 +29,9 @@ quarantadue
 $ number-to-words --lang=en 42
 forty-two
 
+$ number-to-words --lang=se 42
+fyrtio-två
+
 $ number-to-words --lang=romain 42
 XLII
 
@@ -38,29 +42,34 @@ $ number-to-words --lang=all 42
 forty-two
 quarante-deux
 quarantadue
+fyrtio-två
 XLII
 
 $ number-to-words --lang=all 1
 one
 un
 uno
+en
 I
 
 $ number-to-words --lang=all 1337
 one thousand three hundred thirty-seven
 mille trois cent trente-sept
 uno mille trecento trentasette
+en tusen tre hundra trettio-sju
 MCCCXXXVII
 
 $ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
 uno miliardo duecento trentaquattro milione cinquecento sessentasette mille ottocento novanta
+en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta hundra nittio
 
 $ number-to-words --lang=all 1000000000000
 one quadrillion
 un billiard
 uno quadrillion
+en biljoner
 ```
 
 ```console
@@ -97,6 +106,9 @@ fmt.Println(ntw.IntegerToEnglish(42))
 
 fmt.Println(ntw.IntegerToItalian(42))
 // Outputs: quarantadue
+
+fmt.Println(ntw.IntegerToSwedish(42))
+// Outputs: fyrtio-två
 
 fmt.Println(ntw.IntegerToRoman(42))
 // Outputs: XLII
