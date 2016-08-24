@@ -14,7 +14,7 @@ Converti les nombres en lettres.
 * Français [fr] 🇫🇷
 * Italiano [it] 🇮🇹
 * Swedish [se] 🇸🇪
-* Roman numbers Ⅷ
+* Roman numbers Ⅷ  (with `--unicode` support)
 
 
 ## CLI usage
@@ -32,8 +32,11 @@ forty-two
 $ number-to-words --lang=se 42
 fyrtio-två
 
-$ number-to-words --lang=romain 42
+$ number-to-words --lang=roman 42
 XLII
+
+$ number-to-words --lang=roman --unicode 42
+ⅩⅬⅡ
 
 $ number-to-words 42
 forty-two
@@ -72,6 +75,8 @@ uno quadrillion
 en biljoner
 ```
 
+### `--help`
+
 ```console
 $ number-to-words -h
 NAME:
@@ -93,6 +98,34 @@ GLOBAL OPTIONS:
    --version, -v            print the version
 ```
 
+### Unicode support
+
+Roman support the `--unicode` option.
+
+```console
+$ for i in {1..20}; do ./number-to-words -l roman -u $i; done
+Ⅰ
+Ⅱ
+Ⅲ
+Ⅳ
+Ⅴ
+Ⅵ
+Ⅶ
+Ⅷ
+Ⅸ
+Ⅹ
+Ⅺ
+Ⅻ
+ⅩⅢ
+ⅩⅣ
+ⅩⅤ
+ⅩⅥ
+ⅩⅦ
+ⅩⅧ
+ⅩⅨ
+ⅩⅩ
+```
+
 ## API usage
 
 ```go
@@ -112,6 +145,9 @@ fmt.Println(ntw.IntegerToSwedish(42))
 
 fmt.Println(ntw.IntegerToRoman(42))
 // Outputs: XLII
+
+fmt.Println(ntw.IntegerToUnicodeRoman(42))
+// Outputs: ⅩⅬⅡ
 ```
 
 ## Install

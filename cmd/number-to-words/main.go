@@ -27,6 +27,11 @@ func main() {
 			Usage:  "Set language",
 			Value:  "en",
 		},
+		cli.BoolFlag{
+			Name:   "unicode, u",
+			EnvVar: "NTW_UNICODE",
+			Usage:  "Use unicode characters when available",
+		},
 	}
 	app.Action = convert
 	app.Run(os.Args)
@@ -44,27 +49,31 @@ func convert(c *cli.Context) error {
 	}
 
 	found := false
-	var output []string
+	var outputs []string
 	lang := c.String("lang")
 
 	if lang == "en" || lang == "english" || lang == "all" {
-		output = append(output, ntw.IntegerToEnglish(input))
+		outputs = append(outputs, ntw.IntegerToEnglish(input))
 		found = true
 	}
 	if lang == "fr" || lang == "french" || lang == "all" {
-		output = append(output, ntw.IntegerToFrench(input))
+		outputs = append(outputs, ntw.IntegerToFrench(input))
 		found = true
 	}
 	if lang == "it" || lang == "italian" || lang == "all" {
-		output = append(output, ntw.IntegerToItalian(input))
+		outputs = append(outputs, ntw.IntegerToItalian(input))
 		found = true
 	}
 	if lang == "se" || lang == "swedish" || lang == "all" {
-		output = append(output, ntw.IntegerToSwedish(input))
+		outputs = append(outputs, ntw.IntegerToSwedish(input))
 		found = true
 	}
 	if lang == "roman" || lang == "all" {
-		output = append(output, ntw.IntegerToRoman(input))
+		if c.Bool("unicode") {
+			outputs = append(outputs, ntw.IntegerToUnicodeRoman(input))
+		} else {
+			outputs = append(outputs, ntw.IntegerToRoman(input))
+		}
 		found = true
 	}
 	if !found {
@@ -72,6 +81,6 @@ func convert(c *cli.Context) error {
 		os.Exit(1)
 	}
 
-	fmt.Println(strings.Join(output, "\n"))
+	fmt.Println(strings.Join(outputs, "\n"))
 	return nil
 }

@@ -60,3 +60,31 @@ func IntegerToRoman(input int) string {
 
 	return strings.Join(words, "")
 }
+
+func IntegerToUnicodeRoman(input int) string {
+	roman := IntegerToRoman(input)
+
+	roman = strings.Replace(roman, "M", "Ⅿ", -1)
+	roman = strings.Replace(roman, "D", "Ⅾ", -1)
+	roman = strings.Replace(roman, "C", "Ⅽ", -1)
+	roman = strings.Replace(roman, "L", "Ⅼ", -1)
+
+	roman = strings.Replace(roman, "IX", "Ⅸ", -1)
+	roman = strings.Replace(roman, "IV", "Ⅳ", -1)
+
+	roman = strings.Replace(roman, "VIII", "Ⅷ", -1)
+	roman = strings.Replace(roman, "III", "Ⅲ", -1)
+
+	roman = strings.Replace(roman, "VII", "Ⅶ", -1)
+	roman = strings.Replace(roman, "XII", "Ⅻ", -1)
+	roman = strings.Replace(roman, "II", "Ⅱ", -1)
+
+	roman = strings.Replace(roman, "XI", "Ⅺ", -1)
+	roman = strings.Replace(roman, "VI", "Ⅵ", -1)
+
+	roman = strings.Replace(roman, "X", "Ⅹ", -1)
+	roman = strings.Replace(roman, "V", "Ⅴ", -1)
+	roman = strings.Replace(roman, "I", "Ⅰ", -1)
+
+	return roman
+}
