@@ -10,11 +10,11 @@ Converti les nombres en lettres.
 
 ## Supported languages / Langues supportées
 
-* English [en]
-* Français [fr]
-* Italiano [it]
-* Swedish [se]
-* Roman numbers
+* English [en] 🇺🇸
+* Français [fr] 🇫🇷
+* Italiano [it] 🇮🇹
+* Swedish [se] 🇸🇪
+* Roman numbers Ⅷ
 
 
 ## CLI usage
