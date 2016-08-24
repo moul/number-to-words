@@ -1,6 +1,7 @@
 # number-to-words
 
 [![GoDoc](https://godoc.org/github.com/moul/number-to-words?status.svg)](https://godoc.org/github.com/moul/number-to-words)
+[![Build Status](https://travis-ci.org/moul/number-to-words.svg?branch=master)](https://travis-ci.org/moul/number-to-words)
 [![Coverage Status](https://coveralls.io/repos/github/moul/number-to-words/badge.svg?branch=master)](https://coveralls.io/github/moul/number-to-words?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/moul/number-to-words)](https://goreportcard.com/report/github.com/moul/number-to-words)
 
