@@ -52,8 +52,7 @@ func IntegerToDutch(input int) string {
 		}
 
 		if tens == 0 && units == 0 {
-			words = append(words, strings.Join(tripletWords, ""))
-			continue
+			goto tripletEnd
 		}
 
 		switch tens {
@@ -72,6 +71,7 @@ func IntegerToDutch(input int) string {
 			break
 		}
 
+	tripletEnd:
 		// megas
 		switch idx {
 		case 0:

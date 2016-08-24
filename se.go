@@ -48,7 +48,7 @@ func IntegerToSwedish(input int) string {
 		}
 
 		if tens == 0 && units == 0 {
-			continue
+			goto tripletEnd
 		}
 
 		switch tens {
@@ -67,6 +67,7 @@ func IntegerToSwedish(input int) string {
 			break
 		}
 
+	tripletEnd:
 		// mega
 		if mega := swedishMegas[idx]; mega != "" {
 			words = append(words, mega)

@@ -9,7 +9,7 @@ import (
 
 func ExampleIntegerToDutch() {
 	fmt.Println(IntegerToDutch(42))
-	// Output: fyrtio-två
+	// Output: tweeenveertig
 }
 
 func TestIntegerToDutch(t *testing.T) {
@@ -48,6 +48,9 @@ func TestIntegerToDutch(t *testing.T) {
 			2000000:       "twee miljoen",
 			4000000:       "vier miljoen",
 			5000000:       "vijf miljoen",
+			100100100:     "honderd miljoen honderdduizend honderd",
+			500500500:     "vijfhonderd miljoen vijfhonderdduizend vijfhonderd",
+			606606606:     "zeshonderdzes miljoen zeshonderdzesduizend zeshonderdzes",
 			999000000:     "negenhonderdnegenennegentig miljoen",
 			999000999:     "negenhonderdnegenennegentig miljoen negenhonderdnegenennegentig",
 			999999000:     "negenhonderdnegenennegentig miljoen negenhonderdnegenennegentigduizend",

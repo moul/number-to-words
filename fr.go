@@ -56,7 +56,7 @@ func IntegerToFrench(input int) string {
 			} else {
 				if tens == 0 && units == 0 {
 					words = append(words, frenchUnits[hundreds], "cents")
-					continue
+					goto tripletEnd
 				} else {
 					words = append(words, frenchUnits[hundreds], "cent")
 				}
@@ -64,7 +64,7 @@ func IntegerToFrench(input int) string {
 		}
 
 		if tens == 0 && units == 0 {
-			continue
+			goto tripletEnd
 		}
 
 		switch tens {
@@ -114,6 +114,7 @@ func IntegerToFrench(input int) string {
 			break
 		}
 
+	tripletEnd:
 		// mega
 		mega := frenchMegas[idx]
 		if mega != "" {

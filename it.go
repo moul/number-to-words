@@ -56,7 +56,7 @@ func IntegerToItalian(input int) string {
 		}
 
 		if tens == 0 && units == 0 {
-			continue
+			goto tripletEnd
 		}
 
 		switch tens {
@@ -75,6 +75,7 @@ func IntegerToItalian(input int) string {
 			break
 		}
 
+	tripletEnd:
 		// mega
 		if mega := italianMegas[idx]; mega != "" {
 			words = append(words, mega)

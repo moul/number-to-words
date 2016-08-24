@@ -49,7 +49,7 @@ func IntegerToEnglish(input int) string {
 		}
 
 		if tens == 0 && units == 0 {
-			continue
+			goto tripletEnd
 		}
 
 		switch tens {
@@ -68,6 +68,7 @@ func IntegerToEnglish(input int) string {
 			break
 		}
 
+	tripletEnd:
 		// mega
 		if mega := englishMegas[idx]; mega != "" {
 			words = append(words, mega)
