@@ -15,7 +15,7 @@ func IntegerToDutch(input int) string {
 	words := []string{}
 
 	if input < 0 {
-		words = append(words, "TODO")
+		words = append(words, "minder")
 		input *= -1
 	}
 

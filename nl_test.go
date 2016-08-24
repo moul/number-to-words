@@ -64,6 +64,6 @@ func TestIntegerToDutch(t *testing.T) {
 		}
 
 		// testing negative values
-		So(IntegerToDutch(-1), ShouldEqual, "TODO één")
+		So(IntegerToDutch(-1), ShouldEqual, "minder één")
 	})
 }
