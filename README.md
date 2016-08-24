@@ -10,10 +10,11 @@ Converti les nombres en lettres.
 
 ## Supported languages / Langues supportées
 
-* English [en] 🇺🇸
-* Français [fr] 🇫🇷
-* Italiano [it] 🇮🇹
-* Swedish [se] 🇸🇪
+* American English / United States of America [en] 🇺🇸
+* Français / France [fr] 🇫🇷
+* Italiano / Italy [it] 🇮🇹
+* Swedish / Sweden [se] 🇸🇪
+* Dutch / Netherlands [nl] 🇳🇱
 * Roman numbers Ⅷ  (with `--unicode` support)
 
 
@@ -32,6 +33,9 @@ forty-two
 $ number-to-words --lang=se 42
 fyrtio-två
 
+$ number-to-words --lang=nl 42
+tweeenveertig
+
 $ number-to-words --lang=roman 42
 XLII
 
@@ -46,6 +50,7 @@ forty-two
 quarante-deux
 quarantadue
 fyrtio-två
+tweeenveertig
 XLII
 
 $ number-to-words --lang=all 1
@@ -53,6 +58,7 @@ one
 un
 uno
 en
+één
 I
 
 $ number-to-words --lang=all 1337
@@ -60,6 +66,7 @@ one thousand three hundred thirty-seven
 mille trois cent trente-sept
 uno mille trecento trentasette
 en tusen tre hundra trettio-sju
+éénduizend driehonderdzevenendertig
 MCCCXXXVII
 
 $ number-to-words --lang=all 1234567890
@@ -67,12 +74,14 @@ one billion two hundred thirty-four million five hundred sixty-seven thousand ei
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
 uno miliardo duecento trentaquattro milione cinquecento sessentasette mille ottocento novanta
 en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta hundra nittio
+één miljard tweehonderdvierendertig miljoen vijfhonderdzevenenzestigduizend achthonderdnegentig
 
 $ number-to-words --lang=all 1000000000000
 one quadrillion
 un billiard
 uno quadrillion
 en biljoner
+één biljoen
 ```
 
 ### `--help`
@@ -142,6 +151,9 @@ fmt.Println(ntw.IntegerToItalian(42))
 
 fmt.Println(ntw.IntegerToSwedish(42))
 // Outputs: fyrtio-två
+
+fmt.Println(ntw.IntegerToDutch(42))
+// Outputs: tweeenveertig
 
 fmt.Println(ntw.IntegerToRoman(42))
 // Outputs: XLII
