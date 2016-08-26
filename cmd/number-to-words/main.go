@@ -80,6 +80,10 @@ func convert(c *cli.Context) error {
 		}
 		found = true
 	}
+	if lang == "aegean" || lang == "all" {
+		outputs = append(outputs, ntw.IntegerToAegean(input))
+		found = true
+	}
 	if !found {
 		fmt.Fprintf(os.Stderr, "Unknown language: %s\n", lang)
 		os.Exit(1)

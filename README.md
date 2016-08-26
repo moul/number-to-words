@@ -43,6 +43,9 @@ XLII
 $ number-to-words --lang=roman --unicode 42
 ⅩⅬⅡ
 
+$ number-to-words --lang=aegean 42
+𐄓𐄈
+
 $ number-to-words 42
 forty-two
 
@@ -53,6 +56,7 @@ quarantadue
 fyrtio-två
 tweeenveertig
 XLII
+𐄓𐄈
 
 $ number-to-words --lang=all 1
 one
@@ -61,6 +65,7 @@ uno
 en
 één
 I
+𐄇
 
 $ number-to-words --lang=all 1337
 one thousand three hundred thirty-seven
@@ -69,6 +74,7 @@ uno mille trecento trentasette
 en tusen tre hundra trettio-sju
 éénduizend driehonderdzevenendertig
 MCCCXXXVII
+𐄢𐄛𐄒𐄍
 
 $ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
@@ -161,6 +167,9 @@ fmt.Println(ntw.IntegerToRoman(42))
 
 fmt.Println(ntw.IntegerToUnicodeRoman(42))
 // Outputs: ⅩⅬⅡ
+
+fmt.Println(ntw.IntegerToAegean(42))
+// Outputs: 𐄓𐄈
 ```
 
 ## Install
