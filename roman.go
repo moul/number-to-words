@@ -19,6 +19,10 @@ func IntegerToRoman(input int) string {
 		input *= -1
 	}
 
+	if input >= 10000 {
+		return "too big number"
+	}
+
 	if input == 0 {
 		return "nulla"
 	}
