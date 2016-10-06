@@ -14,6 +14,7 @@ Converti les nombres en lettres.
 * American English / United States of America [en] 🇺🇸
 * Français / France [fr] 🇫🇷
 * Italiano / Italy [it] 🇮🇹
+* Spanish / Spain [es] 🇪🇸
 * Swedish / Sweden [se] 🇸🇪
 * Dutch / Netherlands [nl] 🇳🇱
 * Roman numbers Ⅷ  (with `--unicode` support)
