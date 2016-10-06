@@ -28,6 +28,9 @@ quarante-deux
 $ number-to-words --lang=it 42
 quarantadue
 
+$ number-to-words --lang=es 42
+cuarenta y dos
+
 $ number-to-words --lang=en 42
 forty-two
 
@@ -53,6 +56,7 @@ $ number-to-words --lang=all 42
 forty-two
 quarante-deux
 quarantadue
+cuarenta y dos
 fyrtio-två
 tweeenveertig
 XLII
@@ -61,6 +65,7 @@ XLII
 $ number-to-words --lang=all 1
 one
 un
+uno
 uno
 en
 één
@@ -71,6 +76,7 @@ $ number-to-words --lang=all 1337
 one thousand three hundred thirty-seven
 mille trois cent trente-sept
 uno mille trecento trentasette
+un mil trescientos treinta y siete
 en tusen tre hundra trettio-sju
 éénduizend driehonderdzevenendertig
 MCCCXXXVII
@@ -80,15 +86,19 @@ $ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
 uno miliardo duecento trentaquattro milione cinquecento sessentasette mille ottocento novanta
+un mil millones doscientos treinta y cuatro millones quinientos sesenta y siete mil ochocientos noventa
 en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta hundra nittio
 één miljard tweehonderdvierendertig miljoen vijfhonderdzevenenzestigduizend achthonderdnegentig
 
 $ number-to-words --lang=all 1000000000000
-one quadrillion
-un billiard
-uno quadrillion
+one trillion
+un billion
+uno triliardo
+un billón
 en biljoner
 één biljoen
+too big number
+too big number
 ```
 
 ### `--help`
@@ -155,6 +165,9 @@ fmt.Println(ntw.IntegerToEnglish(42))
 
 fmt.Println(ntw.IntegerToItalian(42))
 // Outputs: quarantadue
+
+fmt.Println(ntw.IntegerToSpanish(42))
+// Outputs: cuarenta y dos
 
 fmt.Println(ntw.IntegerToSwedish(42))
 // Outputs: fyrtio-två
