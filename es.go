@@ -5,10 +5,14 @@ import (
 	"strings"
 )
 
-var spanishMegas = []string{"", "mil", "millon", "billon", "trillon", "cuatrillon", "quintillon", "sextillon", "septillon", "octillon", "nonillon", "decillon", "oncillon", "docillon", "trecillon", "catorcillon"}
+var spanishMegasSingular = []string{"", "mil", "millón", "mil millones", "billón"}
+var spanishMegasPlural = []string{"", "mil", "millones", "mil millones", "billones"}
+var spanishUnitsAdjectives = []string{"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nove"}
 var spanishUnits = []string{"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"}
+var spanishHundreds = []string{"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"}
 var spanishTens = []string{"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"}
-var spanishTeens = []string{"diez", "once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve"}
+var spanishTeens = []string{"diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"}
+var spanishTwenties = []string{"veinte", "veintiuno", "veintidós", "veintitrés", "veinticuatro", "veinticinco", "veintiséis", "veintisiete", "veintiocho", "veintinueve"}
 
 // IntegerToSpanish converts an integer to spanish words
 func IntegerToSpanish(input int) string {
@@ -24,9 +28,16 @@ func IntegerToSpanish(input int) string {
 	triplets := integerToTriplets(input)
 	//log.Printf("Triplets: %v\n", triplets)
 
-	// zero is a special case
-	if len(triplets) == 0 {
-		return "zero"
+	// special cases
+	switch {
+	case len(triplets) == 0:
+		return "cero"
+	case input == 1000:
+		words = append(words, "mil")
+		goto end
+	case input == 1:
+		words = append(words, "uno")
+		goto end
 	}
 
 	// iterate over triplets
@@ -45,7 +56,7 @@ func IntegerToSpanish(input int) string {
 		units := triplet % 10
 		//log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
 		if hundreds > 0 {
-			words = append(words, spanishUnits[hundreds], "mil")
+			words = append(words, spanishHundreds[hundreds])
 		}
 
 		if tens == 0 && units == 0 {
@@ -54,13 +65,24 @@ func IntegerToSpanish(input int) string {
 
 		switch tens {
 		case 0:
-			words = append(words, spanishUnits[units])
+			if idx > 0 {
+				words = append(words, spanishUnitsAdjectives[units])
+			} else {
+				words = append(words, spanishUnits[units])
+			}
 		case 1:
 			words = append(words, spanishTeens[units])
 			break
+		case 2:
+			if idx > 0 && units == 1 {
+				words = append(words, "veintiún")
+			} else {
+				words = append(words, spanishTwenties[units])
+			}
+			break
 		default:
 			if units > 0 {
-				word := fmt.Sprintf("%s-%s", spanishTens[tens], spanishUnits[units])
+				word := fmt.Sprintf("%s y %s", spanishTens[tens], spanishUnits[units])
 				words = append(words, word)
 			} else {
 				words = append(words, spanishTens[tens])
@@ -69,12 +91,23 @@ func IntegerToSpanish(input int) string {
 		}
 
 	tripletEnd:
-		// mega
-		if mega := spanishMegas[idx]; mega != "" {
-			words = append(words, mega)
+		switch triplet {
+		case 0:
+			break
+		case 1:
+			if mega := spanishMegasSingular[idx]; mega != "" {
+				words = append(words, mega)
+			}
+			break
+		default:
+			if mega := spanishMegasPlural[idx]; mega != "" {
+				words = append(words, mega)
+			}
+			break
 		}
 	}
 
+end:
 	//log.Printf("Words length: %d\n", len(words))
 	return strings.Join(words, " ")
 }
