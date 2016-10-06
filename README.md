@@ -18,6 +18,7 @@ Converti les nombres en lettres.
 * Swedish / Sweden [se] 🇸🇪
 * Dutch / Netherlands [nl] 🇳🇱
 * Roman numbers Ⅷ  (with `--unicode` support)
+* Aegean numerals
 
 
 ## CLI usage
