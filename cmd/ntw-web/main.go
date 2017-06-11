@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path"
 	"strconv"
 
-	"github.com/apex/log"
 	"github.com/gorilla/mux"
 	"github.com/moul/number-to-words"
 	"github.com/urfave/cli"
@@ -72,6 +72,6 @@ func server(c *cli.Context) error {
 		w.WriteHeader(http.StatusOK)
 		fmt.Fprintf(w, "%s\n", output)
 	})
-	log.Infof("Listening to %s", c.String("bind"))
+	log.Printf("Listening to %s", c.String("bind"))
 	return http.ListenAndServe(c.String("bind"), r)
 }
