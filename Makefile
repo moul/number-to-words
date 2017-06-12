@@ -1,16 +1,16 @@
-NAME =		number-to-words
+PACKAGES =	$(notdir $(wildcard ./cmd/*))
 SOURCE :=	$(shell find . -name "*.go")
 
 
 all: build
 
 
-$(NAME): $(SOURCE)
-	go build -o ./$(NAME) ./cmd/$(NAME)/main.go
+$(PACKAGES): $(SOURCE)
+	go install -v ./cmd/$@
 
 
 .PHONY: build
-build: $(NAME)
+build: $(PACKAGES)
 
 
 .PHONY: docker
