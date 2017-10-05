@@ -76,6 +76,10 @@ func convert(c *cli.Context) error {
 		outputs = append(outputs, ntw.IntegerToDutch(input))
 		found = true
 	}
+	if lang == "tr" || lang == "turkish" || lang == "all" {
+		outputs = append(outputs, ntw.IntegerToTurkish(input))
+		found = true
+	}
 	if lang == "roman" || lang == "all" {
 		if c.Bool("unicode") {
 			outputs = append(outputs, ntw.IntegerToUnicodeRoman(input))

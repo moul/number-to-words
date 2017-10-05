@@ -58,6 +58,8 @@ func server(c *cli.Context) error {
 			output = ntw.IntegerToSpanish(number)
 		case "nl", "dutch":
 			output = ntw.IntegerToSpanish(number)
+		case "tr", "turkish":
+			output = ntw.IntegerToTurkish(number)
 		case "roman":
 			output = ntw.IntegerToRoman(number)
 		case "roman-unicode":
