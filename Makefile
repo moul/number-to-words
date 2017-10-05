@@ -20,6 +20,7 @@ docker:
 
 .PHONY: test
 test:
+	go test -i .
 	go test -v .
 
 
