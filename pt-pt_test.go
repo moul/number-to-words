@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToSpanish() {
-	fmt.Println(IntegerToSpanish(42))
+func ExampleIntegerPortuguese() {
+	fmt.Println(IntegerToPortuguese_PT(42))
 	// Output: cuarenta y dos
 }
 
-func TestIntegerToSpanish(t *testing.T) {
-	Convey("Testing IntegerToSpanish()", t, FailureContinues, func() {
+func TestIntegerToPortuguese(t *testing.T) {
+	Convey("Testing IntegerToPortuguese()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "zero",
 			1:             "um",
@@ -31,10 +31,10 @@ func TestIntegerToSpanish(t *testing.T) {
 			13:            "treze",
 			14:            "catorze",
 			15:            "quinze",
-			16:            "dezesseis",
-			17:            "dezessete",
+			16:            "dezasseis",
+			17:            "dezasete",
 			18:            "dezoito",
-			19:            "dezenove",
+			19:            "dezanove",
 			20:            "vinte",
 			21:            "vinte e um",
 			22:            "vinte e dois",
@@ -103,10 +103,10 @@ func TestIntegerToSpanish(t *testing.T) {
 			2935174315119: "dois biliões novecentos e trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToPortuguese-PT(input), ShouldEqual, expectedOutput)
+			So(IntegerToPortuguese_PT(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToPortuguese-PT(-1), ShouldEqual, "menos")
+		So(IntegerToPortuguese_PT(-1), ShouldEqual, "menos um")
 	})
 }
