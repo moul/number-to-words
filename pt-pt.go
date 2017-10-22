@@ -2,39 +2,15 @@ package ntw
 
 import (
 	"fmt"
-	"math"
 )
 
 var portugueseMegasSingular = []string{"", "mil", "milhão", "mil milhões", "bilião"}
 var portugueseMegasPlural = []string{"", "mil", "milhões", "mil milhões", "bilhões"}
-var portugueseUnitsAdjectives = []string{"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
+var portugueseAdjectives = []string{"", " e ", " e ", " e ", " e ", " e ", " e ", " e ", " e ", " e ", " e "}
 var portugueseUnits = []string{"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
-var portugueseHundreds = []string{"", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos", "cento"}
+var portugueseHundreds = []string{"", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos", "cento"}
 var portugueseTens = []string{"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
 var portugueseTeens = []string{"dez", "onze", "doze", "treze", "catorze", "quinze", "dezasseis", "dezasete", "dezoito", "dezanove"}
-
-func IntegerToPortuguese_PT(input int) string {
-	//log.Printf("Input: %d\n", input)
-	words := []string{}
-
-	if input < 0 {
-		words = append(words, "menos")
-		input *= -1
-	}
-	fmt.Printf("%d  %f\n", input, math.Floor(math.Log10(math.Abs(float64(input))))+1)
-
-	triplets := integerToTriplets(input)
-	fmt.Println(triplets)
-	for idx := len(triplets) - 1; idx >= 0; idx-- {
-		hundreds := triplet / 100 % 10
-		tens := triplet / 10 % 10
-		units := triplet % 10
-
-	}
-	// split integer in triplets
-	return Join(words, "")
-
-}
 
 // JOIN From strings.Join
 // following robs pike advice from golang proverbs "A little copying is better than a little dependency."
@@ -89,5 +65,81 @@ func Join(a []string, sep string) string {
 	}
 
 	return string(b)
+
+}
+
+func IntegerToPortuguese_PT(input int) string {
+	//log.Printf("Input: %d\n", input)
+	words := []string{}
+
+	if input < 0 {
+		words = append(words, "menos")
+		input *= -1
+	}
+	//fmt.Printf("%d  %f\n", input, math.Floor(math.Log10(math.Abs(float64(input))))+1)
+
+	triplets := integerToTriplets(input)
+	for idx := len(triplets) - 1; idx >= 0; idx-- {
+		triplet := triplets[idx]
+		//log.Printf("Triplet: %d (idx=%d)\n", triplet, idx)
+
+		// nothing todo for empty triplet
+		if triplet == 0 {
+			continue
+		}
+
+		// three-digits
+		hundreds := triplet / 100 % 10
+		tens := triplet / 10 % 10
+		units := triplet % 10
+		//log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
+		if hundreds > 0 {
+			word := fmt.Sprintf("%s e", portugueseHundreds[hundreds])
+			words = append(words, word)
+		}
+
+		if tens == 0 && units == 0 {
+			goto tripletEnd
+		}
+
+		switch tens {
+		case 0:
+			words = append(words, portugueseUnits[units])
+		case 1:
+			word := fmt.Sprintf("%s ", portugueseTeens[units])
+			words = append(words, word)
+			break
+		default:
+			if units > 0 {
+				word := fmt.Sprintf("%s e %s", portugueseTens[tens], portugueseUnits[units])
+				words = append(words, word)
+			} else {
+
+				word := fmt.Sprintf("%s ", portugueseTens[tens])
+				words = append(words, word)
+			}
+			break
+		}
+	tripletEnd:
+		switch triplet {
+		case 0:
+			break
+		case 1:
+			if mega := portugueseMegasSingular[idx]; mega != "" {
+				word := fmt.Sprintf("%s ", mega)
+				words = append(words, word)
+			}
+			break
+		default:
+			if mega := portugueseMegasPlural[idx]; mega != "" {
+
+				word := fmt.Sprintf("%s ", mega)
+				words = append(words, word)
+			}
+			break
+		}
+	}
+
+	return Join(words, "")
 
 }
