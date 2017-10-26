@@ -83,7 +83,7 @@ func TestIntegerToPortuguese(t *testing.T) {
 			5000000:       "cinco milhões",
 			100100100:     "cem milhões cem mil e cem",
 			500500500:     "quinhentos milhões quinhentos mil e quinhentos",
-			500500501:     "quinhentos milhões quinhentos mil e quinhentos e um",
+			500500501:     "quinhentos milhões quinhentos mil quinhentos e um",
 			606606606:     "seiscentos e seis milhões seiscentos e seis mil seiscentos e seis",
 			999000000:     "novecentos e noventa e nove milhões",
 			999000999:     "novecentos e noventa e nove milhões novecentos e noventa e nove",

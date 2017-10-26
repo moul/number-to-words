@@ -97,7 +97,12 @@ func IntegerToPortuguese_PT(input int) string {
 		units := triplet % 10
 		//log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
 		if hundreds > 0 && units == 0 && tens == 0 {
-			word := fmt.Sprintf("%s", portugueseHundreds[hundreds])
+			var word string
+			if idx == 0 && len(words) != 0 {
+				word = fmt.Sprintf("e %s", portugueseHundreds[hundreds])
+			} else {
+				word = fmt.Sprintf("%s", portugueseHundreds[hundreds])
+			}
 			words = append(words, word)
 		} else if hundreds > 0 {
 			if hundreds == 1 {
@@ -136,13 +141,20 @@ func IntegerToPortuguese_PT(input int) string {
 			break
 		case 1:
 			if mega := portugueseMegasSingular[idx]; mega != "" {
+				if idx == 4 {
+					words = append(words, "um")
+				} else if idx == 1 && portugueseUnits[idx] == words[0] {
+					words = words[1:]
+				}
 				word := fmt.Sprintf("%s", mega)
 				words = append(words, word)
 			}
 			break
 		default:
 			if mega := portugueseMegasPlural[idx]; mega != "" {
-
+				if idx == 1 && portugueseUnits[idx] == words[0] {
+					words = words[1:]
+				}
 				word := fmt.Sprintf("%s", mega)
 				words = append(words, word)
 			}
