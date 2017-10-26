@@ -67,7 +67,7 @@ func Join(a []string, sep string) string {
 
 }
 
-func IntegerToPortuguese_PT(input int) string {
+func IntegerToPortuguesePT(input int) string {
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 
@@ -142,7 +142,16 @@ func IntegerToPortuguese_PT(input int) string {
 		case 1:
 			if mega := portugueseMegasSingular[idx]; mega != "" {
 				if idx == 4 {
-					words = append(words, "um")
+					sum := 0
+					for i := 0; i < len(triplets)-1; i++ {
+						sum += triplets[i]
+					}
+					if sum == 0 {
+
+					} else {
+						words = append(words, "um")
+					}
+
 				} else if idx == 1 && portugueseUnits[idx] == words[0] {
 					words = words[1:]
 				}
