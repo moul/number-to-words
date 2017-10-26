@@ -2,15 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/mux"
+	"github.com/moul/number-to-words"
+	"github.com/urfave/cli"
 	"log"
 	"net/http"
 	"os"
 	"path"
 	"strconv"
-
-	"github.com/gorilla/mux"
-	"github.com/moul/number-to-words"
-	"github.com/urfave/cli"
 )
 
 func main() {
@@ -59,6 +58,8 @@ func server(c *cli.Context) error {
 		case "nl", "dutch":
 			output = ntw.IntegerToSpanish(number)
 		case "tr", "turkish":
+			output = ntw.IntegerToTurkish(number)
+		case "pt-pt", "portuguesePT":
 			output = ntw.IntegerToTurkish(number)
 		case "roman":
 			output = ntw.IntegerToRoman(number)
