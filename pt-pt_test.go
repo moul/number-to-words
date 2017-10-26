@@ -1,16 +1,10 @@
 package ntw
 
 import (
-	"fmt"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
 )
-
-func ExampleIntegerPortuguese() {
-	fmt.Println(IntegerToPortuguese_PT(42))
-	// Output: cuarenta y dos
-}
 
 func TestIntegerToPortuguese(t *testing.T) {
 	Convey("Testing IntegerToPortuguese()", t, FailureContinues, func() {
@@ -69,7 +63,7 @@ func TestIntegerToPortuguese(t *testing.T) {
 			909:           "novecentos e nove",
 			919:           "novecentos e dezanove",
 			990:           "novecentos e noventa",
-			999:           "novencentos e noventa e nove",
+			999:           "novecentos e noventa e nove",
 			1000:          "mil",
 			2000:          "dois mil",
 			4000:          "quatro mil",
@@ -82,13 +76,14 @@ func TestIntegerToPortuguese(t *testing.T) {
 			39000:         "trinta e nove mil",
 			42000:         "quarenta e dois mil",
 			999000:        "novecentos e noventa e nove mil",
-			999999:        "novencetos e noventa e nove mil novecentos e noventa e nove",
+			999999:        "novecentos e noventa e nove mil novecentos e noventa e nove",
 			1000000:       "um milhão",
 			2000000:       "dois milhões",
 			4000000:       "quatro milhões",
 			5000000:       "cinco milhões",
 			100100100:     "cem milhões cem mil e cem",
 			500500500:     "quinhentos milhões quinhentos mil e quinhentos",
+			500500501:     "quinhentos milhões quinhentos mil e quinhentos e um",
 			606606606:     "seiscentos e seis milhões seiscentos e seis mil seiscentos e seis",
 			999000000:     "novecentos e noventa e nove milhões",
 			999000999:     "novecentos e noventa e nove milhões novecentos e noventa e nove",
@@ -96,11 +91,11 @@ func TestIntegerToPortuguese(t *testing.T) {
 			999999999:     "novecentos e noventa e nove milhões novecentos e noventa e nove mil novecentos e noventa e nove",
 			1174315110:    "mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dez",
 			1174315119:    "mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
-			15174315119:   "quinze mil milhões cento e setenta e cuatro milhões trezentos e quinze mil cento e dezanove",
+			15174315119:   "quinze mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
 			35174315119:   "trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
-			935174315119:  "novecentos e trinta e cinco mil milhões cento e setenta e cuatro milhões trezentos e quinze mil cento e dezanove",
+			935174315119:  "novecentos e trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
 			1935174315119: "um bilião novecentos e trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
-			2935174315119: "dois biliões novecentos e trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
+			2935174315119: "dois bilhões novecentos e trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
 		}
 		for input, expectedOutput := range testing {
 			So(IntegerToPortuguese_PT(input), ShouldEqual, expectedOutput)

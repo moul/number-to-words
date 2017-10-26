@@ -6,7 +6,6 @@ import (
 
 var portugueseMegasSingular = []string{"", "mil", "milhão", "mil milhões", "bilião"}
 var portugueseMegasPlural = []string{"", "mil", "milhões", "mil milhões", "bilhões"}
-var portugueseAdjectives = []string{"", " e ", " e ", " e ", " e ", " e ", " e ", " e ", " e ", " e ", " e "}
 var portugueseUnits = []string{"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
 var portugueseHundreds = []string{"", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos", "cento"}
 var portugueseTens = []string{"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
@@ -79,6 +78,10 @@ func IntegerToPortuguese_PT(input int) string {
 	//fmt.Printf("%d  %f\n", input, math.Floor(math.Log10(math.Abs(float64(input))))+1)
 
 	triplets := integerToTriplets(input)
+	switch {
+	case len(triplets) == 0:
+		return "zero"
+	}
 	for idx := len(triplets) - 1; idx >= 0; idx-- {
 		triplet := triplets[idx]
 		//log.Printf("Triplet: %d (idx=%d)\n", triplet, idx)
@@ -93,9 +96,16 @@ func IntegerToPortuguese_PT(input int) string {
 		tens := triplet / 10 % 10
 		units := triplet % 10
 		//log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
-		if hundreds > 0 {
+		if hundreds > 0 && units == 0 && tens == 0 {
+			word := fmt.Sprintf("%s", portugueseHundreds[hundreds])
+			words = append(words, word)
+		} else if hundreds > 0 {
+			if hundreds == 1 {
+				hundreds = 10
+			}
 			word := fmt.Sprintf("%s e", portugueseHundreds[hundreds])
 			words = append(words, word)
+
 		}
 
 		if tens == 0 && units == 0 {
@@ -106,7 +116,7 @@ func IntegerToPortuguese_PT(input int) string {
 		case 0:
 			words = append(words, portugueseUnits[units])
 		case 1:
-			word := fmt.Sprintf("%s ", portugueseTeens[units])
+			word := fmt.Sprintf("%s", portugueseTeens[units])
 			words = append(words, word)
 			break
 		default:
@@ -115,7 +125,7 @@ func IntegerToPortuguese_PT(input int) string {
 				words = append(words, word)
 			} else {
 
-				word := fmt.Sprintf("%s ", portugueseTens[tens])
+				word := fmt.Sprintf("%s", portugueseTens[tens])
 				words = append(words, word)
 			}
 			break
@@ -126,20 +136,20 @@ func IntegerToPortuguese_PT(input int) string {
 			break
 		case 1:
 			if mega := portugueseMegasSingular[idx]; mega != "" {
-				word := fmt.Sprintf("%s ", mega)
+				word := fmt.Sprintf("%s", mega)
 				words = append(words, word)
 			}
 			break
 		default:
 			if mega := portugueseMegasPlural[idx]; mega != "" {
 
-				word := fmt.Sprintf("%s ", mega)
+				word := fmt.Sprintf("%s", mega)
 				words = append(words, word)
 			}
 			break
 		}
 	}
 
-	return Join(words, "")
+	return Join(words, " ")
 
 }
