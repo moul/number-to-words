@@ -80,6 +80,10 @@ func convert(c *cli.Context) error {
 		outputs = append(outputs, ntw.IntegerToTurkish(input))
 		found = true
 	}
+	if lang == "pt-pt" || lang == "portuguesePT" || lang == "all" {
+		outputs = append(outputs, ntw.IntegerToPortuguesePT(input))
+		found = true
+	}
 	if lang == "roman" || lang == "all" {
 		if c.Bool("unicode") {
 			outputs = append(outputs, ntw.IntegerToUnicodeRoman(input))

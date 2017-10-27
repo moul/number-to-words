@@ -18,6 +18,7 @@ Converti les nombres en lettres.
 * Swedish / Sweden [se] 🇸🇪
 * Dutch / Netherlands [nl] 🇳🇱
 * Turkish / Turkey [tr] 🇹🇷
+* Portuguese / Portugal [pt] PT
 * Roman numbers Ⅷ  (with `--unicode` support)
 * Aegean numerals
 
@@ -46,6 +47,9 @@ tweeenveertig
 $ number-to-words --lang=tr 42
 kırk iki
 
+$ number-to-words --lang=pt-pt 42
+quarenta e dois
+
 $ number-to-words --lang=roman 42
 XLII
 
@@ -66,6 +70,7 @@ cuarenta y dos
 fyrtio-två
 tweeenveertig
 kırk iki
+quarenta e dois
 XLII
 𐄓𐄈
 
@@ -77,6 +82,7 @@ uno
 en
 één
 bir
+um
 I
 𐄇
 
@@ -88,6 +94,7 @@ un mil trescientos treinta y siete
 en tusen tre hundra trettio-sju
 éénduizend driehonderdzevenendertig
 bin üç yüz otuz yedi
+mil trezentos e trinta e sete
 MCCCXXXVII
 𐄢𐄛𐄒𐄍
 
@@ -99,6 +106,7 @@ un mil millones doscientos treinta y cuatro millones quinientos sesenta y siete 
 en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta hundra nittio
 één miljard tweehonderdvierendertig miljoen vijfhonderdzevenenzestigduizend achthonderdnegentig
 bir milyar iki yüz otuz dört milyon beş yüz altmış yedi bin sekiz yüz doksan
+mil milhões duzentos e trinta e quatro milhões quinhentos e sessenta e sete mil oitocentos e noventa
 
 $ number-to-words --lang=all 1000000000000
 one trillion
@@ -108,6 +116,7 @@ un billón
 en biljoner
 één biljoen
 bir trilyon
+um bilião
 too big number
 too big number
 ```
@@ -188,6 +197,9 @@ fmt.Println(ntw.IntegerToDutch(42))
 
 fmt.Println(ntw.IntegerToTurkish(42))
 // Outputs: kırk iki
+
+fmt.Println(ntw.IntegerToPortuguesePT(42))
+// Outputs: quarenta e dois
 
 fmt.Println(ntw.IntegerToRoman(42))
 // Outputs: XLII
