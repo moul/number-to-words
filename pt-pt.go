@@ -137,8 +137,6 @@ func IntegerToPortuguesePT(input int) string {
 		}
 	tripletEnd:
 		switch triplet {
-		case 0:
-			break
 		case 1:
 			if mega := portugueseMegasSingular[idx]; mega != "" {
 				if idx == 4 {
