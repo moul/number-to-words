@@ -56,10 +56,18 @@ $ number-to-words --lang=roman --unicode 42
 
 $ number-to-words --lang=aegean 42
 𐄓𐄈
+```
 
+default language is english
+
+```console
 $ number-to-words 42
 forty-two
+```
 
+print every supported language at once
+
+```console
 $ number-to-words --lang=all 42
 forty-two
 quarante-deux
@@ -139,6 +147,7 @@ COMMANDS:
 GLOBAL OPTIONS:
    --lang value, -l value   Set language (default: "en") [$NTW_LANGUAGE]
    --help, -h               show help
+   --unicode, -u            Use unicode characters when available [$NTW_UNICODE]
    --version, -v            print the version
 ```
 
@@ -177,7 +186,9 @@ import "github.com/moul/number-to-words"
 
 fmt.Println(ntw.IntegerToFrench(42))
 // Outputs: quarante-deux
+```
 
+```go
 fmt.Println(ntw.IntegerToEnglish(42))
 // Outputs: forty-two
 
