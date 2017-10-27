@@ -55,9 +55,9 @@ func server(c *cli.Context) error {
 		case "es", "spanish":
 			output = ntw.IntegerToSpanish(number)
 		case "se", "swedish":
-			output = ntw.IntegerToSpanish(number)
+			output = ntw.IntegerToSwedish(number)
 		case "nl", "dutch":
-			output = ntw.IntegerToSpanish(number)
+			output = ntw.IntegerToDutch(number)
 		case "tr", "turkish":
 			output = ntw.IntegerToTurkish(number)
 		case "pt-pt", "portuguesePT":
