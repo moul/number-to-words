@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var italianMegas = []string{"", "mille", "milione", "miliardo", "triliardo", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion"}
-var italianUnits = []string{"", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove"}
-var italianTens = []string{"", "dieci", "venti", "trenta", "quaranta", "cinquanta", "sessenta", "settanta", "ottanta", "novanta"}
-var italianTeens = []string{"dieci", "undici", "dodici", "tredici", "quattordici", "quindici", "sedici", "diciasette", "dicioto", "diciannove"}
+func init() {
+	// register the language
+	Languages["it-it"] = Language{
+		Name:    "Italian",
+		Aliases: []string{"it", "it-it", "it_IT", "italian"},
+		Flag:    "🇮🇹",
 
-// IntegerToItalian converts an integer to Italian words
-func IntegerToItalian(input int) string {
+		IntegerToWords: IntegerToItIt,
+	}
+}
+
+// IntegerToItIt converts an integer to Italian words
+func IntegerToItIt(input int) string {
+	var italianMegas = []string{"", "mille", "milione", "miliardo", "triliardo", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion"}
+	var italianUnits = []string{"", "uno", "due", "tre", "quattro", "cinque", "sei", "sette", "otto", "nove"}
+	var italianTens = []string{"", "dieci", "venti", "trenta", "quaranta", "cinquanta", "sessenta", "settanta", "ottanta", "novanta"}
+	var italianTeens = []string{"dieci", "undici", "dodici", "tredici", "quattordici", "quindici", "sedici", "diciasette", "dicioto", "diciannove"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

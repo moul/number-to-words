@@ -5,17 +5,28 @@ import (
 	"strings"
 )
 
-var spanishMegasSingular = []string{"", "mil", "millón", "mil millones", "billón"}
-var spanishMegasPlural = []string{"", "mil", "millones", "mil millones", "billones"}
-var spanishUnitsAdjectives = []string{"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nove"}
-var spanishUnits = []string{"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"}
-var spanishHundreds = []string{"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"}
-var spanishTens = []string{"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"}
-var spanishTeens = []string{"diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"}
-var spanishTwenties = []string{"veinte", "veintiuno", "veintidós", "veintitrés", "veinticuatro", "veinticinco", "veintiséis", "veintisiete", "veintiocho", "veintinueve"}
+func init() {
+	// register the language
+	Languages["es-es"] = Language{
+		Name:    "European Spanish",
+		Aliases: []string{"es", "es-es", "es_ES", "spanish"},
+		Flag:    "🇪🇸",
 
-// IntegerToSpanish converts an integer to spanish words
-func IntegerToSpanish(input int) string {
+		IntegerToWords: IntegerToEsEs,
+	}
+}
+
+// IntegerToEsEs converts an integer to spanish words
+func IntegerToEsEs(input int) string {
+	var spanishMegasSingular = []string{"", "mil", "millón", "mil millones", "billón"}
+	var spanishMegasPlural = []string{"", "mil", "millones", "mil millones", "billones"}
+	var spanishUnitsAdjectives = []string{"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nove"}
+	var spanishUnits = []string{"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"}
+	var spanishHundreds = []string{"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"}
+	var spanishTens = []string{"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"}
+	var spanishTeens = []string{"diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"}
+	var spanishTwenties = []string{"veinte", "veintiuno", "veintidós", "veintitrés", "veinticuatro", "veinticinco", "veintiséis", "veintisiete", "veintiocho", "veintinueve"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

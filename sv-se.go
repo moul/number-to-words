@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var swedishMegas = []string{"", "tusen", "miljoner", "miljarder", "biljoner", "kvadriljon", "kvintiljon", "sextillion", "septillion", "octillion", "nonillion", "decillion"}
-var swedishUnits = []string{"noll", "en", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio"}
-var swedishTens = []string{"noll", "tio", "tjugo", "trettio", "fyrtio", "femtio", "sextio", "sjuttio", "åttio", "nittio"}
-var swedishTeens = []string{"tio", "elva", "tolv", "tretton", "fjorton", "femton", "sexton", "sjutton", "arton", "nitton"}
+func init() {
+	// register the language
+	Languages["sv-se"] = Language{
+		Name:    "Swedish",
+		Aliases: []string{"sv-se", "sv_SE", "swedish"},
+		Flag:    "🇸🇪",
 
-// IntegerToSwedish converts an integer to Swedish words
-func IntegerToSwedish(input int) string {
+		IntegerToWords: IntegerToSvSe,
+	}
+}
+
+// IntegerToSvSe converts an integer to Swedish words
+func IntegerToSvSe(input int) string {
+	var swedishMegas = []string{"", "tusen", "miljoner", "miljarder", "biljoner", "kvadriljon", "kvintiljon", "sextillion", "septillion", "octillion", "nonillion", "decillion"}
+	var swedishUnits = []string{"noll", "en", "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio"}
+	var swedishTens = []string{"noll", "tio", "tjugo", "trettio", "fyrtio", "femtio", "sextio", "sjuttio", "åttio", "nittio"}
+	var swedishTeens = []string{"tio", "elva", "tolv", "tretton", "fjorton", "femton", "sexton", "sjutton", "arton", "nitton"}
+
 	words := []string{}
 
 	if input < 0 {

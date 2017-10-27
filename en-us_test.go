@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToEnglish() {
-	fmt.Println(IntegerToEnglish(42))
+func ExampleIntegerToEnUs() {
+	fmt.Println(IntegerToEnUs(42))
 	// Output: forty-two
 }
 
-func TestIntegerToEnglish(t *testing.T) {
-	Convey("Testing IntegerToEnglish()", t, FailureContinues, func() {
+func TestIntegerToEnUs(t *testing.T) {
+	Convey("Testing IntegerToEnUs()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "zero",
 			1:             "one",
@@ -63,10 +63,10 @@ func TestIntegerToEnglish(t *testing.T) {
 			2935174315119: "two trillion nine hundred thirty-five billion one hundred seventy-four million three hundred fifteen thousand one hundred nineteen",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToEnglish(input), ShouldEqual, expectedOutput)
+			So(IntegerToEnUs(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToEnglish(-1), ShouldEqual, "minus one")
+		So(IntegerToEnUs(-1), ShouldEqual, "minus one")
 	})
 }

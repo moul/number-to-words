@@ -18,7 +18,8 @@ Convert numbers to words.
 * Dutch / Netherlands [nl] 🇳🇱
 * Turkish / Turkey [tr] 🇹🇷
 * Portuguese / Portugal [pt-pt] 🇵🇹
-* Roman numbers Ⅷ  (with `--unicode` support)
+* Roman Numbers
+* Roman Numbers (with Unicode) Ⅷ
 * Aegean numerals
 
 
@@ -55,7 +56,7 @@ quarenta e dois
 $ number-to-words --lang=roman 42
 XLII
 
-$ number-to-words --lang=roman --unicode 42
+$ number-to-words --lang=roman-unicode
 ⅩⅬⅡ
 
 $ number-to-words --lang=aegean 42
@@ -155,8 +156,20 @@ COMMANDS:
 GLOBAL OPTIONS:
    --lang value, -l value   Set language (default: "en") [$NTW_LANGUAGE]
    --help, -h               show help
-   --unicode, -u            Use unicode characters when available [$NTW_UNICODE]
    --version, -v            print the version
+
+AVAILABLE LANGUAGES:
+   European Spanish (es, es-es, es_ES, spanish) 🇪🇸
+   Belgian French (fr-be, fr_BE, belgian) 🇧🇪
+   French (fr, fr-fr, fr_FR, french) 🇫🇷
+   Italian (it, it-it, it_IT, italian) 🇮🇹
+   Roman Numbers (with Unicode) (roman-unicode)
+   Swedish (sv-se, sv_SE, swedish) 🇸🇪
+   Aegean (aegean)
+   American English (en, en-us, es_US, american, english) 🇺🇸  *default*
+   Dutch (nl, dutch, nl-nl, nl_NL) 🇳🇱
+   Portuguese (Portugal) (pt, pt-pt, pt_PT, portuguese) 🇵🇹
+   Roman Numbers (roman)
 ```
 
 ### Unicode support
@@ -192,42 +205,42 @@ $ for i in {1..20}; do ./number-to-words -l roman -u $i; done
 ```go
 import "github.com/moul/number-to-words"
 
-fmt.Println(ntw.IntegerToFrench(42))
+fmt.Println(ntw.IntegerToFrFr(42)) // french
 // Outputs: quarante-deux
 ```
 
 ```go
-fmt.Println(ntw.IntegerToFrBe(92))
+fmt.Println(ntw.IntegerToFrBe(92)) // belgian french
 // Outputs: nonante-deux
 
-fmt.Println(ntw.IntegerToEnglish(42))
+fmt.Println(ntw.IntegerToEnUs(42)) // american english
 // Outputs: forty-two
 
-fmt.Println(ntw.IntegerToItalian(42))
+fmt.Println(ntw.IntegerToItIt(42)) // italian
 // Outputs: quarantadue
 
-fmt.Println(ntw.IntegerToSpanish(42))
+fmt.Println(ntw.IntegerToEsEs(42)) // spanish
 // Outputs: cuarenta y dos
 
-fmt.Println(ntw.IntegerToSwedish(42))
+fmt.Println(ntw.IntegerToSvSe(42)) // swedish
 // Outputs: fyrtio-två
 
-fmt.Println(ntw.IntegerToDutch(42))
+fmt.Println(ntw.IntegerToNlNl(42)) // dutch
 // Outputs: tweeenveertig
 
-fmt.Println(ntw.IntegerToTurkish(42))
+fmt.Println(ntw.IntegerToTrTr(42)) // turkish
 // Outputs: kırk iki
 
-fmt.Println(ntw.IntegerToPortuguesePT(42))
+fmt.Println(ntw.IntegerToPtPt(42)) // portuguese (portugal)
 // Outputs: quarenta e dois
 
-fmt.Println(ntw.IntegerToRoman(42))
+fmt.Println(ntw.IntegerToRoman(42)) // roman
 // Outputs: XLII
 
-fmt.Println(ntw.IntegerToUnicodeRoman(42))
+fmt.Println(ntw.IntegerToRomanUnicode(42)) // roman (unicode)
 // Outputs: ⅩⅬⅡ
 
-fmt.Println(ntw.IntegerToAegean(42))
+fmt.Println(ntw.IntegerToAegean(42)) // aegean (unicode)
 // Outputs: 𐄓𐄈
 ```
 

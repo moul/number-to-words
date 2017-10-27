@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var dutchMegas = []string{"", "duizend", "miljoen", "miljard", "biljoen", "biljard", "triljoen", "triljard", "septiljoen", "octillion", "noniljoen", "decillion"}
-var dutchUnits = []string{"nul", "één", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen"}
-var dutchTens = []string{"nul", "tien", "twintig", "dertig", "veertig", "vijftig", "zestig", "zeventig", "tachtig", "negentig"}
-var dutchTeens = []string{"tien", "elf", "twaalf", "dertien", "veertien", "vijftien", "zestien", "zeventien", "achttien", "negentien"}
+func init() {
+	// register the language
+	Languages["nl-nl"] = Language{
+		Name:    "Dutch",
+		Aliases: []string{"nl", "dutch", "nl-nl", "nl_NL"},
+		Flag:    "🇳🇱",
 
-// IntegerToDutch converts an integer to Dutch words
-func IntegerToDutch(input int) string {
+		IntegerToWords: IntegerToNlNl,
+	}
+}
+
+// IntegerToNlNl converts an integer to Dutch words
+func IntegerToNlNl(input int) string {
+	var dutchMegas = []string{"", "duizend", "miljoen", "miljard", "biljoen", "biljard", "triljoen", "triljard", "septiljoen", "octillion", "noniljoen", "decillion"}
+	var dutchUnits = []string{"nul", "één", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen"}
+	var dutchTens = []string{"nul", "tien", "twintig", "dertig", "veertig", "vijftig", "zestig", "zeventig", "tachtig", "negentig"}
+	var dutchTeens = []string{"tien", "elf", "twaalf", "dertien", "veertien", "vijftien", "zestien", "zeventien", "achttien", "negentien"}
+
 	words := []string{}
 
 	if input < 0 {

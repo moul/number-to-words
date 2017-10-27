@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var turkishMegs = []string{"", "bin", "milyon", "milyar", "trilyon", "katrilyon", "kentilyon", "sekstilyon", "septilyon", "oktilyon", "nonilyon", "desilyon", "andesilyon", "dodesilyon", "tredesilyon", "katordesilyon"}
-var turkishUnits = []string{"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"}
-var turkishTens = []string{"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"}
-var turkishTeens = []string{"on", "on bir", "on iki", "on üç", "on dört", "on beş", "on altı", "on yedi", "on sekiz", "on dokuz"}
+func init() {
+	// register the language
+	Languages["tr-tr"] = Language{
+		Name:    "Turkish",
+		Aliases: []string{"tr", "tr-tr", "tr_TR", "turkish"},
+		Flag:    "🇹🇷",
 
-// IntegerToTurkish converts an integer to Turkish words
-func IntegerToTurkish(input int) string {
+		IntegerToWords: IntegerToTrTr,
+	}
+}
+
+// IntegerToTrTr converts an integer to Turkish words
+func IntegerToTrTr(input int) string {
+	var turkishMegs = []string{"", "bin", "milyon", "milyar", "trilyon", "katrilyon", "kentilyon", "sekstilyon", "septilyon", "oktilyon", "nonilyon", "desilyon", "andesilyon", "dodesilyon", "tredesilyon", "katordesilyon"}
+	var turkishUnits = []string{"", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"}
+	var turkishTens = []string{"", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"}
+	var turkishTeens = []string{"on", "on bir", "on iki", "on üç", "on dört", "on beş", "on altı", "on yedi", "on sekiz", "on dokuz"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

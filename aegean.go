@@ -1,17 +1,20 @@
 package ntw
 
+func init() {
+	// register the language
+	Languages["aegean"] = Language{
+		Name:    "Aegean",
+		Aliases: []string{"aegean"},
+		Flag:    "",
+
+		IntegerToWords: IntegerToAegean,
+	}
+}
+
 // IntegerToAegean converts an integer to Aegean words
 func IntegerToAegean(input int) string {
-	if input < 0 {
-		return "negative values not supported"
-	}
-
-	if input == 0 {
-		return "zero not supported"
-	}
-
-	if input >= 100000 {
-		return "too big number"
+	if input < 0 || input == 0 || input >= 100000 {
+		return ""
 	}
 
 	output := ""

@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var frenchMegas = []string{"", "mille", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "quadrillion", "quadrilliard", "quintillion", "quintilliard"}
-var frenchUnits = []string{"", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"}
-var frenchTens = []string{"", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante", "quatre-vingt", "quatre-vingt"}
-var frenchTeens = []string{"dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"}
+func init() {
+	// register the language
+	Languages["fr-fr"] = Language{
+		Name:    "French",
+		Aliases: []string{"fr", "fr-fr", "fr_FR", "french"},
+		Flag:    "🇫🇷",
 
-// IntegerToFrench converts an integer to French words
-func IntegerToFrench(input int) string {
+		IntegerToWords: IntegerToFrFr,
+	}
+}
+
+// IntegerToFrFr converts an integer to French words
+func IntegerToFrFr(input int) string {
+	var frenchMegas = []string{"", "mille", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "quadrillion", "quadrilliard", "quintillion", "quintilliard"}
+	var frenchUnits = []string{"", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"}
+	var frenchTens = []string{"", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante", "quatre-vingt", "quatre-vingt"}
+	var frenchTeens = []string{"dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

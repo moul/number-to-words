@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToItalian() {
-	fmt.Println(IntegerToItalian(42))
+func ExampleIntegerToItIt() {
+	fmt.Println(IntegerToItIt(42))
 	// Output: quarantadue
 }
 
-func TestIntegerToItalian(t *testing.T) {
-	Convey("Testing IntegerToItalian()", t, FailureContinues, func() {
+func TestIntegerToItIt(t *testing.T) {
+	Convey("Testing IntegerToItIt()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "zero",
 			1:             "uno",
@@ -63,10 +63,10 @@ func TestIntegerToItalian(t *testing.T) {
 			2935174315119: "due triliardo novecento trentacinque miliardo cento settantaquattro milione trecento quindici mille cento diciannove",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToItalian(input), ShouldEqual, expectedOutput)
+			So(IntegerToItIt(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToItalian(-1), ShouldEqual, "meno uno")
+		So(IntegerToItIt(-1), ShouldEqual, "meno uno")
 	})
 }

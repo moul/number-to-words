@@ -15,7 +15,7 @@ func ExampleIntegerToAegean() {
 func TestIntegerToAegean(t *testing.T) {
 	Convey("Testing IntegerToAegean()", t, FailureContinues, func() {
 		testing := map[int]string{
-			0:      "zero not supported",
+			0:      "", // not supported
 			1:      "𐄇",
 			2:      "𐄈",
 			3:      "𐄉",
@@ -37,15 +37,15 @@ func TestIntegerToAegean(t *testing.T) {
 			111:    "𐄙𐄐𐄇",
 			12345:  "𐄫𐄣𐄛𐄓𐄋",
 			99999:  "𐄳𐄪𐄡𐄘𐄏",
-			100000: "too big number",
-			100001: "too big number",
+			100000: "", // too big
+			100001: "", // too big
 		}
 		for input, expectedOutput := range testing {
 			So(IntegerToAegean(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToAegean(-1), ShouldEqual, "negative values not supported")
+		So(IntegerToAegean(-1), ShouldEqual, "") // not supported
 
 		// FIXME: large numbers using ansi code
 	})

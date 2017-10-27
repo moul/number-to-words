@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToDutch() {
-	fmt.Println(IntegerToDutch(42))
+func ExampleIntegerToNlNl() {
+	fmt.Println(IntegerToNlNl(42))
 	// Output: tweeenveertig
 }
 
-func TestIntegerToDutch(t *testing.T) {
-	Convey("Testing IntegerToDutch()", t, FailureContinues, func() {
+func TestIntegerToNlNl(t *testing.T) {
+	Convey("Testing IntegerToNlNl()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "nul",
 			1:             "één",
@@ -63,10 +63,10 @@ func TestIntegerToDutch(t *testing.T) {
 			2935174315119: "twee biljoen negenhonderdvijfendertig miljard honderdvierenzeventig miljoen driehonderdvijftienduizend honderdnegentien",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToDutch(input), ShouldEqual, expectedOutput)
+			So(IntegerToNlNl(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToDutch(-1), ShouldEqual, "minder één")
+		So(IntegerToNlNl(-1), ShouldEqual, "minder één")
 	})
 }

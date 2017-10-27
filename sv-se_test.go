@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToSwedish() {
-	fmt.Println(IntegerToSwedish(42))
+func ExampleIntegerToSvSe() {
+	fmt.Println(IntegerToSvSe(42))
 	// Output: fyrtio-två
 }
 
-func TestIntegerToSwedish(t *testing.T) {
-	Convey("Testing IntegerToSwedish()", t, FailureContinues, func() {
+func TestIntegerToSvSe(t *testing.T) {
+	Convey("Testing IntegerToSvSe()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "noll",
 			1:             "en",
@@ -63,10 +63,10 @@ func TestIntegerToSwedish(t *testing.T) {
 			2935174315119: "två biljoner nio hundra trettio-fem miljarder en hundra sjuttio-fyra miljoner tre hundra femton tusen en hundra nitton",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToSwedish(input), ShouldEqual, expectedOutput)
+			So(IntegerToSvSe(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToSwedish(-1), ShouldEqual, "mindre en")
+		So(IntegerToSvSe(-1), ShouldEqual, "mindre en")
 	})
 }

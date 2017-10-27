@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToFrench() {
-	fmt.Println(IntegerToFrench(42))
+func ExampleIntegerToFrFr() {
+	fmt.Println(IntegerToFrFr(42))
 	// Output: quarante-deux
 }
 
-func TestIntegerToFrench(t *testing.T) {
-	Convey("Testing IntegerToFrench()", t, FailureContinues, func() {
+func TestIntegerToFrFr(t *testing.T) {
+	Convey("Testing IntegerToFrFr()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "zéro",
 			1:             "un",
@@ -80,10 +80,10 @@ func TestIntegerToFrench(t *testing.T) {
 			2935174315119: "deux billions neuf cent trente-cinq milliards cent soixante-quatorze millions trois cent quinze mille cent dix-neuf",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToFrench(input), ShouldEqual, expectedOutput)
+			So(IntegerToFrFr(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToFrench(-1), ShouldEqual, "moins un")
+		So(IntegerToFrFr(-1), ShouldEqual, "moins un")
 	})
 }
