@@ -11,6 +11,7 @@ Convert numbers to words.
 
 * American English / United States of America [en] 🇺🇸
 * Français / France [fr] 🇫🇷
+* Français (Belge) / Belgium [fr-be] 🇧🇪
 * Italiano / Italy [it] 🇮🇹
 * Spanish / Spain [es] 🇪🇸
 * Swedish / Sweden [se] 🇸🇪
@@ -26,6 +27,9 @@ Convert numbers to words.
 ```console
 $ number-to-words --lang=fr 42
 quarante-deux
+
+$ number-to-words --lang=fr-be 92
+nonante-deux
 
 $ number-to-words --lang=it 42
 quarantadue
@@ -71,6 +75,7 @@ print every supported language at once
 $ number-to-words --lang=all 42
 forty-two
 quarante-deux
+quarante-deux
 quarantadue
 cuarenta y dos
 fyrtio-två
@@ -82,6 +87,7 @@ XLII
 
 $ number-to-words --lang=all 1
 one
+un
 un
 uno
 uno
@@ -95,6 +101,7 @@ I
 $ number-to-words --lang=all 1337
 one thousand three hundred thirty-seven
 mille trois cent trente-sept
+mille trois cent trente-sept
 uno mille trecento trentasette
 un mil trescientos treinta y siete
 en tusen tre hundra trettio-sju
@@ -107,6 +114,7 @@ MCCCXXXVII
 $ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
+un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent nonante
 uno miliardo duecento trentaquattro milione cinquecento sessentasette mille ottocento novanta
 un mil millones doscientos treinta y cuatro millones quinientos sesenta y siete mil ochocientos noventa
 en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta hundra nittio
@@ -189,6 +197,9 @@ fmt.Println(ntw.IntegerToFrench(42))
 ```
 
 ```go
+fmt.Println(ntw.IntegerToFrBe(92))
+// Outputs: nonante-deux
+
 fmt.Println(ntw.IntegerToEnglish(42))
 // Outputs: forty-two
 

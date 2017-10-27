@@ -48,8 +48,10 @@ func server(c *cli.Context) error {
 		switch vars["lang"] {
 		case "en", "english":
 			output = ntw.IntegerToEnglish(number)
-		case "fr", "french":
+		case "fr", "fr-fr", "french":
 			output = ntw.IntegerToFrench(number)
+		case "fr-be":
+			output = ntw.IntegerToFrBe(number)
 		case "it", "italian":
 			output = ntw.IntegerToItalian(number)
 		case "es", "spanish":
