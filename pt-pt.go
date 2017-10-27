@@ -20,7 +20,6 @@ func IntegerToPortuguesePT(input int) string {
 		words = append(words, "menos")
 		input *= -1
 	}
-	//fmt.Printf("%d  %f\n", input, math.Floor(math.Log10(math.Abs(float64(input))))+1)
 
 	triplets := integerToTriplets(input)
 	switch {

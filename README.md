@@ -7,9 +7,7 @@
 
 Convert numbers to words.
 
-Converti les nombres en lettres.
-
-## Supported languages / Langues supportées
+## Supported languages
 
 * American English / United States of America [en] 🇺🇸
 * Français / France [fr] 🇫🇷
@@ -18,7 +16,7 @@ Converti les nombres en lettres.
 * Swedish / Sweden [se] 🇸🇪
 * Dutch / Netherlands [nl] 🇳🇱
 * Turkish / Turkey [tr] 🇹🇷
-* Portuguese / Portugal [pt] PT
+* Portuguese / Portugal [pt-pt] 🇵🇹
 * Roman numbers Ⅷ  (with `--unicode` support)
 * Aegean numerals
 
