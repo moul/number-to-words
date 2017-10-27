@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/moul/number-to-words"
-	"github.com/urfave/cli"
 	"os"
 	"path"
 	"strconv"
 	"strings"
+
+	"github.com/moul/number-to-words"
+	"github.com/urfave/cli"
 )
 
 func main() {
@@ -80,7 +81,7 @@ func convert(c *cli.Context) error {
 		found = true
 	}
 	if lang == "pt-pt" || lang == "portuguesePT" || lang == "all" {
-		outputs = append(outputs, ntw.IntegerToPortuguese_PT(input))
+		outputs = append(outputs, ntw.IntegerToPortuguesePT(input))
 		found = true
 	}
 	if lang == "roman" || lang == "all" {

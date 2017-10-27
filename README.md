@@ -199,7 +199,7 @@ fmt.Println(ntw.IntegerToTurkish(42))
 // Outputs: kırk iki
 
 fmt.Println(ntw.IntegerToPortuguesePT(42))
-// Outputs: kırk iki
+// Outputs: quarenta e dois
 
 fmt.Println(ntw.IntegerToRoman(42))
 // Outputs: XLII
