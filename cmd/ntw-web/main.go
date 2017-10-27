@@ -21,11 +21,15 @@ func main() {
 	app.Version = ntw.Version
 	app.Usage = "number to number web API"
 
+	defaultListen := ":" + os.Getenv("PORT")
+	if defaultListen == ":" {
+		defaultListen = ":8000"
+	}
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "bind, b",
 			Usage: "HTTP bind address",
-			Value: ":8000",
+			Value: defaultListen,
 		},
 	}
 	app.Action = server
