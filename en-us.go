@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var englishMegas = []string{"", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion", "undecillion", "duodecillion", "tredecillion", "quattuordecillion"}
-var englishUnits = []string{"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
-var englishTens = []string{"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
-var englishTeens = []string{"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"}
+func init() {
+	// register the language
+	Languages["en-us"] = Language{
+		Name:    "American English",
+		Aliases: []string{"en", "en-us", "es_US", "american", "english"},
+		Flag:    "🇺🇸",
 
-// IntegerToEnglish converts an integer to English words
-func IntegerToEnglish(input int) string {
+		IntegerToWords: IntegerToEnUs,
+	}
+}
+
+// IntegerToEnUs converts an integer to American English words
+func IntegerToEnUs(input int) string {
+	var englishMegas = []string{"", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion", "undecillion", "duodecillion", "tredecillion", "quattuordecillion"}
+	var englishUnits = []string{"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	var englishTens = []string{"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"}
+	var englishTeens = []string{"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

@@ -77,8 +77,8 @@ func TestIntegerToRoman(t *testing.T) {
 	})
 }
 
-func TestIntegerToUnicodeRoman(t *testing.T) {
-	Convey("Testing IntegerToUnicodeRoman()", t, FailureContinues, func() {
+func TestIntegerToRomanUnicode(t *testing.T) {
+	Convey("Testing IntegerToRomanUnicode()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:     "nulla",
 			1:     "Ⅰ",
@@ -130,11 +130,11 @@ func TestIntegerToUnicodeRoman(t *testing.T) {
 			10000: "too big number",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToUnicodeRoman(input), ShouldEqual, expectedOutput)
+			So(IntegerToRomanUnicode(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToUnicodeRoman(-1), ShouldEqual, "-Ⅰ")
+		So(IntegerToRomanUnicode(-1), ShouldEqual, "-Ⅰ")
 
 		// FIXME: large numbers using ansi code
 	})

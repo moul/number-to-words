@@ -5,14 +5,25 @@ import (
 	"strings"
 )
 
-var portugueseMegasSingular = []string{"", "mil", "milhão", "mil milhões", "bilião"}
-var portugueseMegasPlural = []string{"", "mil", "milhões", "mil milhões", "bilhões"}
-var portugueseUnits = []string{"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
-var portugueseHundreds = []string{"", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos", "cento"}
-var portugueseTens = []string{"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
-var portugueseTeens = []string{"dez", "onze", "doze", "treze", "catorze", "quinze", "dezasseis", "dezasete", "dezoito", "dezanove"}
+func init() {
+	// register the language
+	Languages["pt-pt"] = Language{
+		Name:    "Portuguese (Portugal)",
+		Aliases: []string{"pt", "pt-pt", "pt_PT", "portuguese"},
+		Flag:    "🇵🇹",
 
-func IntegerToPortuguesePT(input int) string {
+		IntegerToWords: IntegerToPtPt,
+	}
+}
+
+func IntegerToPtPt(input int) string {
+	var portugueseMegasSingular = []string{"", "mil", "milhão", "mil milhões", "bilião"}
+	var portugueseMegasPlural = []string{"", "mil", "milhões", "mil milhões", "bilhões"}
+	var portugueseUnits = []string{"", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove"}
+	var portugueseHundreds = []string{"", "cem", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos", "cento"}
+	var portugueseTens = []string{"", "dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"}
+	var portugueseTeens = []string{"dez", "onze", "doze", "treze", "catorze", "quinze", "dezasseis", "dezasete", "dezoito", "dezanove"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

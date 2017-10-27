@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToTurkish() {
-	fmt.Println(IntegerToTurkish(42))
+func ExampleIntegerToTrTr() {
+	fmt.Println(IntegerToTrTr(42))
 	// Output: kırk iki
 }
 
-func TestIntegerToTurkish(t *testing.T) {
-	Convey("Testing IntegerToTurkish()", t, FailureContinues, func() {
+func TestIntegerToTrTr(t *testing.T) {
+	Convey("Testing IntegerToTrTr()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "sıfır",
 			1:             "bir",
@@ -63,10 +63,10 @@ func TestIntegerToTurkish(t *testing.T) {
 			2935174315119: "iki trilyon dokuz yüz otuz beş milyar yüz yetmiş dört milyon üç yüz on beş bin yüz on dokuz",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToTurkish(input), ShouldEqual, expectedOutput)
+			So(IntegerToTrTr(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToTurkish(-1), ShouldEqual, "eksi bir")
+		So(IntegerToTrTr(-1), ShouldEqual, "eksi bir")
 	})
 }

@@ -6,8 +6,8 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestIntegerToPortuguese(t *testing.T) {
-	Convey("Testing IntegerToPortuguese()", t, FailureContinues, func() {
+func TestIntegerToPtPt(t *testing.T) {
+	Convey("Testing IntegerToPtPt()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:          "zero",
 			1:          "um",
@@ -103,10 +103,10 @@ func TestIntegerToPortuguese(t *testing.T) {
 			2935174315119: "dois bilhões novecentos e trinta e cinco mil milhões cento e setenta e quatro milhões trezentos e quinze mil cento e dezanove",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToPortuguesePT(input), ShouldEqual, expectedOutput)
+			So(IntegerToPtPt(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToPortuguesePT(-1), ShouldEqual, "menos um")
+		So(IntegerToPtPt(-1), ShouldEqual, "menos um")
 	})
 }

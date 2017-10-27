@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToSpanish() {
-	fmt.Println(IntegerToSpanish(42))
+func ExampleIntegerToEsEs() {
+	fmt.Println(IntegerToEsEs(42))
 	// Output: cuarenta y dos
 }
 
-func TestIntegerToSpanish(t *testing.T) {
-	Convey("Testing IntegerToSpanish()", t, FailureContinues, func() {
+func TestIntegerToEsEs(t *testing.T) {
+	Convey("Testing IntegerToEsEs()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:     "cero",
 			1:     "uno",
@@ -102,10 +102,10 @@ func TestIntegerToSpanish(t *testing.T) {
 			2935174315119: "dos billones novecientos treinta y cinco mil millones ciento setenta y cuatro millones trescientos quince mil ciento diecinueve",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToSpanish(input), ShouldEqual, expectedOutput)
+			So(IntegerToEsEs(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToSpanish(-1), ShouldEqual, "menos uno")
+		So(IntegerToEsEs(-1), ShouldEqual, "menos uno")
 	})
 }

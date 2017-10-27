@@ -44,37 +44,20 @@ func server(c *cli.Context) error {
 			return
 		}
 
-		var output string
-		switch vars["lang"] {
-		case "en", "english":
-			output = ntw.IntegerToEnglish(number)
-		case "fr", "fr-fr", "french":
-			output = ntw.IntegerToFrench(number)
-		case "fr-be":
-			output = ntw.IntegerToFrBe(number)
-		case "it", "italian":
-			output = ntw.IntegerToItalian(number)
-		case "es", "spanish":
-			output = ntw.IntegerToSpanish(number)
-		case "se", "swedish":
-			output = ntw.IntegerToSwedish(number)
-		case "nl", "dutch":
-			output = ntw.IntegerToDutch(number)
-		case "tr", "turkish":
-			output = ntw.IntegerToTurkish(number)
-		case "pt-pt", "portuguesePT":
-			output = ntw.IntegerToPortuguesePT(number)
-		case "roman":
-			output = ntw.IntegerToRoman(number)
-		case "roman-unicode":
-			output = ntw.IntegerToUnicodeRoman(number)
-		case "aegean":
-			output = ntw.IntegerToAegean(number)
-		default:
+		language := ntw.Languages.Lookup(vars["lang"])
+		if language == nil {
 			w.WriteHeader(http.StatusNotFound)
 			fmt.Fprintf(w, "no such language %q\n", vars["lang"])
 			return
 		}
+
+		output := language.IntegerToWords(number)
+		if output == "" {
+			w.WriteHeader(http.StatusInternalServerError)
+			fmt.Fprintf(w, "number not supported for this language\n")
+			return
+		}
+
 		w.WriteHeader(http.StatusOK)
 		fmt.Fprintf(w, "%s\n", output)
 	})

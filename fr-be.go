@@ -5,13 +5,24 @@ import (
 	"strings"
 )
 
-var frBeMegas = []string{"", "mille", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "quadrillion", "quadrilliard", "quintillion", "quintilliard"}
-var frBeUnits = []string{"", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"}
-var frBeTens = []string{"", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "septante", "quatre-vingt", "nonante"}
-var frBeTeens = []string{"dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"}
+func init() {
+	// register the language
+	Languages["fr-be"] = Language{
+		Name:    "Belgian French",
+		Aliases: []string{"fr-be", "fr_BE", "belgian"},
+		Flag:    "🇧🇪",
+
+		IntegerToWords: IntegerToFrBe,
+	}
+}
 
 // IntegerToFrBe converts an integer to French (belgium) words
 func IntegerToFrBe(input int) string {
+	var frBeMegas = []string{"", "mille", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "quadrillion", "quadrilliard", "quintillion", "quintilliard"}
+	var frBeUnits = []string{"", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"}
+	var frBeTens = []string{"", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "septante", "quatre-vingt", "nonante"}
+	var frBeTeens = []string{"dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"}
+
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
 

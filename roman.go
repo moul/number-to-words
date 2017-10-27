@@ -2,6 +2,25 @@ package ntw
 
 import "strings"
 
+func init() {
+	// register the language
+	Languages["roman"] = Language{
+		Name:    "Roman Numbers",
+		Aliases: []string{"roman"},
+		Flag:    "",
+
+		IntegerToWords: IntegerToRoman,
+	}
+
+	Languages["roman-unicode"] = Language{
+		Name:    "Roman Numbers (with Unicode)",
+		Aliases: []string{"roman-unicode"},
+		Flag:    "",
+
+		IntegerToWords: IntegerToRomanUnicode,
+	}
+}
+
 func reduceIfSuperiorLoop(words *[]string, input *int, quantity int, word string) {
 	for *input >= quantity {
 		*input -= quantity
@@ -65,7 +84,7 @@ func IntegerToRoman(input int) string {
 	return strings.Join(words, "")
 }
 
-func IntegerToUnicodeRoman(input int) string {
+func IntegerToRomanUnicode(input int) string {
 	roman := IntegerToRoman(input)
 
 	roman = strings.Replace(roman, "M", "Ⅿ", -1)
