@@ -18,6 +18,8 @@ Convert numbers to words.
 * Dutch / Netherlands [nl] 🇳🇱
 * Turkish / Turkey [tr] 🇹🇷
 * Portuguese / Portugal [pt-pt] 🇵🇹
+* Polish / Poland [pl-pl] 🇵🇱
+
 * Roman Numbers
 * Roman Numbers (with Unicode) Ⅷ
 * Aegean numerals
@@ -46,6 +48,9 @@ fyrtio-två
 
 $ number-to-words --lang=nl 42
 tweeenveertig
+
+$ number-to-words --lang=pl 42
+czterdzieści dwa
 
 $ number-to-words --lang=tr 42
 kırk iki
@@ -169,6 +174,7 @@ AVAILABLE LANGUAGES:
    American English (en, en-us, es_US, american, english) 🇺🇸  *default*
    Dutch (nl, dutch, nl-nl, nl_NL) 🇳🇱
    Portuguese (Portugal) (pt, pt-pt, pt_PT, portuguese) 🇵🇹
+   Polish (Poland) (pl, pl-pl, pl_PL, polish) 🇵🇱
    Roman Numbers (roman)
 ```
 
@@ -227,6 +233,9 @@ fmt.Println(ntw.IntegerToSvSe(42)) // swedish
 
 fmt.Println(ntw.IntegerToNlNl(42)) // dutch
 // Outputs: tweeenveertig
+
+fmt.Println(ntw.IntegerToPlPl(42)) // polish
+// Outputs: czterdzieści dwa
 
 fmt.Println(ntw.IntegerToTrTr(42)) // turkish
 // Outputs: kırk iki
