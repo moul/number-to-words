@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/moul/number-to-words"
+	"github.com/kulaginds/number-to-words/pkg/ntw"
 	"github.com/urfave/cli"
 )
 
