@@ -3,14 +3,11 @@ language: go
 sudo: false
 
 go:
-- 1.5
-- 1.6
-- 1.7
-- 1.8
+- 1.12
 - tip
 
 env:
-- GO15VENDOREXPERIMENT=1
+- GO111MODULE=on
 
 before_install:
 - go get -u github.com/axw/gocov/gocov
@@ -23,6 +20,7 @@ matrix:
   - go: tip
 
 script:
+- go mod download
 - make build
 - make test
 - make cover

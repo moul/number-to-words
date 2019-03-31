@@ -19,6 +19,7 @@ Convert numbers to words.
 * Turkish / Turkey [tr] 🇹🇷
 * Portuguese / Portugal [pt-pt] 🇵🇹
 * Polish / Poland [pl-pl] 🇵🇱
+* Russian / Russia [ru-ru] 🇷🇺
 
 * Roman Numbers
 * Roman Numbers (with Unicode) Ⅷ
