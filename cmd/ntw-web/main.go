@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/moul/number-to-words"
+	ntw "github.com/moul/number-to-words"
 	"github.com/urfave/cli"
 )
 
