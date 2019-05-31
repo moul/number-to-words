@@ -1,3 +1,0 @@
-package: github.com/moul/number-to-words
-import:
-- package: github.com/urfave/cli
