@@ -130,7 +130,7 @@ MCCCXXXVII
 𐄢𐄛𐄒𐄍
 یک هزار سیصد سی و هفت
 
-$ number-to-words --lang=all 1,234,567,890
+$ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent nonante
