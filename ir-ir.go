@@ -16,7 +16,7 @@ func init() {
 	}
 }
 
-func IntegerToEnUs(input int) string {
+func IntegerToIrIr(input int) string {
 	var iranianMegas = []string{"", "هزار", "میلیون", "میلیارد", "بیلیون", "بیلیارد", "تریلیون", "تریلیارد"}
 	var iranianUnits = []string{"", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه"}
 	var iranianTens = []string{"", "ده", "بیست", "سی", "چهل", "پنجاه", "شصت", "هفتاد", "هشتاد", "نود"}
