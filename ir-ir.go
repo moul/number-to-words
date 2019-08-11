@@ -16,6 +16,7 @@ func init() {
 	}
 }
 
+// IntegerToIrIr converts an integer to Iranian words
 func IntegerToIrIr(input int) string {
 	var iranianMegas = []string{"", "هزار", "میلیون", "میلیارد", "بیلیون", "بیلیارد", "تریلیون", "تریلیارد"}
 	var iranianUnits = []string{"", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه"}
