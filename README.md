@@ -25,6 +25,7 @@
 * Portuguese / Portugal [pt-pt] 🇵🇹
 * Polish / Poland [pl-pl] 🇵🇱
 * Russian / Russia [ru-ru] 🇷🇺
+* Iranian / Iran [ir-ir] 🇮🇷
 
 * Roman Numbers
 * Roman Numbers (with Unicode) Ⅷ
@@ -72,6 +73,9 @@ $ number-to-words --lang=roman-unicode
 
 $ number-to-words --lang=aegean 42
 𐄓𐄈
+
+$ number-to-words --lang=ir 42
+چهل و دو
 ```
 
 default language is english
@@ -96,6 +100,7 @@ kırk iki
 quarenta e dois
 XLII
 𐄓𐄈
+چهل و دو
 
 $ number-to-words --lang=all 1
 one
@@ -109,6 +114,7 @@ bir
 um
 I
 𐄇
+یک
 
 $ number-to-words --lang=all 1337
 one thousand three hundred thirty-seven
@@ -122,6 +128,7 @@ bin üç yüz otuz yedi
 mil trezentos e trinta e sete
 MCCCXXXVII
 𐄢𐄛𐄒𐄍
+یک هزار سیصد سی و هفت
 
 $ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
@@ -133,6 +140,7 @@ en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta
 één miljard tweehonderdvierendertig miljoen vijfhonderdzevenenzestigduizend achthonderdnegentig
 bir milyar iki yüz otuz dört milyon beş yüz altmış yedi bin sekiz yüz doksan
 mil milhões duzentos e trinta e quatro milhões quinhentos e sessenta e sete mil oitocentos e noventa
+یک میلیارد دویست سی و چهار میلیون پانصد شصد و هفت هزار هشتصد نود
 
 $ number-to-words --lang=all 1000000000000
 one trillion
@@ -181,6 +189,7 @@ AVAILABLE LANGUAGES:
    Dutch (nl, dutch, nl-nl, nl_NL) 🇳🇱
    Portuguese (Portugal) (pt, pt-pt, pt_PT, portuguese) 🇵🇹
    Polish (Poland) (pl, pl-pl, pl_PL, polish) 🇵🇱
+   Iranian (Iran) (ir, ir-ir, ir_IR, Iran) 🇮🇷
    Roman Numbers (roman)
 ```
 
@@ -257,6 +266,9 @@ fmt.Println(ntw.IntegerToRomanUnicode(42)) // roman (unicode)
 
 fmt.Println(ntw.IntegerToAegean(42)) // aegean (unicode)
 // Outputs: 𐄓𐄈
+
+fmt.Println(ntw.IntegerToIrIr(42)) // iranian
+// Outputs: چهل و دو
 ```
 
 ## Install
