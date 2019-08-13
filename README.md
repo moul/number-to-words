@@ -281,7 +281,9 @@ fmt.Println(ntw.IntegerToIrIr(42)) // iranian
 
 #### Using Homebrew
 
-coming soon
+1. install homebrew
+2. install number-to-words: `brew install moul/moul/number-to-words`
+3. profit: `number-to-words 42`
 
 #### Using Docker
 
