@@ -153,7 +153,7 @@ func IntegerToRuRu(input int) string {
 		// mega
 		if idx >= 1 && idx < len(russianMegas) {
 			mega := russianMegas[idx]
-			tens = tens * 10 + units
+			tens = tens*10 + units
 			if len(mega) > 0 {
 				words = append(words, plural(tens, mega))
 			}

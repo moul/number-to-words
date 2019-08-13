@@ -1,11 +1,16 @@
 # number-to-words
 
-[![GoDoc](https://godoc.org/github.com/moul/number-to-words?status.svg)](https://godoc.org/github.com/moul/number-to-words)
-[![Build Status](https://travis-ci.org/moul/number-to-words.svg?branch=master)](https://travis-ci.org/moul/number-to-words)
-[![Coverage Status](https://coveralls.io/repos/github/moul/number-to-words/badge.svg?branch=master)](https://coveralls.io/github/moul/number-to-words?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/moul/number-to-words)](https://goreportcard.com/report/github.com/moul/number-to-words)
+:smile: `number-to-words` converts a number to words
 
-Convert numbers to words.
+[![CircleCI](https://circleci.com/gh/moul/number-to-words.svg?style=shield)](https://circleci.com/gh/moul/number-to-words)
+[![GoDoc](https://godoc.org/moul.io/number-to-words?status.svg)](https://godoc.org/moul.io/number-to-words)
+[![License](https://img.shields.io/github/license/moul/number-to-words.svg)](https://github.com/moul/number-to-words/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/moul/number-to-words.svg)](https://github.com/moul/number-to-words/releases)
+[![Go Report Card](https://goreportcard.com/badge/moul.io/number-to-words)](https://goreportcard.com/report/moul.io/number-to-words)
+[![CodeFactor](https://www.codefactor.io/repository/github/moul/number-to-words/badge)](https://www.codefactor.io/repository/github/moul/number-to-words)
+[![codecov](https://codecov.io/gh/moul/number-to-words/branch/master/graph/badge.svg)](https://codecov.io/gh/moul/number-to-words)
+[![Docker Metrics](https://images.microbadger.com/badges/image/moul/number-to-words.svg)](https://microbadger.com/images/moul/number-to-words)
+[![Made by Manfred Touron](https://img.shields.io/badge/made%20by-Manfred%20Touron-blue.svg?style=flat)](https://manfred.life/)
 
 ## Supported languages
 
@@ -156,7 +161,7 @@ VERSION:
    0.1.0
 
 AUTHOR(S):
-   Manfred Touron <https://github.com/moul/number-to-words>
+   Manfred Touron <https://moul.io/number-to-words>
 
 COMMANDS:
 GLOBAL OPTIONS:
@@ -210,7 +215,7 @@ $ for i in {1..20}; do ./number-to-words -l roman -u $i; done
 ## API usage
 
 ```go
-import "github.com/moul/number-to-words"
+import ntw "moul.io/number-to-words"
 
 fmt.Println(ntw.IntegerToFrFr(42)) // french
 // Outputs: quarante-deux
@@ -259,7 +264,7 @@ fmt.Println(ntw.IntegerToAegean(42)) // aegean (unicode)
 #### Using Golang
 
 1. install and configure go on your host
-2. get and build: `go get github.com/moul/number-to-words/cmd/number-to-words`
+2. get and build: `go get moul.io/number-to-words/cmd/number-to-words`
 3. profit: `$GOPATH/bin/number-to-words 42`
 
 #### Using Homebrew
