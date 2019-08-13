@@ -101,7 +101,8 @@ func IntegerToFrFr(input int) string {
 				words = append(words, frenchTens[tens]+"s")
 				break
 			default:
-				words = append(words, frenchTens[tens], frenchUnits[units])
+				word := fmt.Sprintf("%s-%s", frenchTens[tens], frenchUnits[units])
+				words = append(words, word)
 				break
 			}
 			break
