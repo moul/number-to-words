@@ -9,7 +9,7 @@ import (
 
 func ExampleIntegerToIrIr() {
 	fmt.Println(IntegerToIrIr(42))
-	// Output: forty-two
+	// Output: چهل و دو
 }
 
 func TestIntegerToIrIr(t *testing.T) {
