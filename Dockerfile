@@ -1,7 +1,15 @@
-FROM golang:1.12
-WORKDIR /go/src/github.com/moul/number-to-words
-COPY . .
-ENV GO111MODULE=on
-RUN go mod download
-RUN make
-ENTRYPOINT ["/go/src/github.com/moul/number-to-words/number-to-words"]
+# build
+FROM            golang:1.12-alpine as builder
+RUN             apk add --no-cache git gcc musl-dev make
+ENV             GO111MODULE=on
+WORKDIR         /go/src/moul.io/number-to-words
+COPY            go.* ./
+RUN             go mod download
+COPY            . ./
+RUN             make install
+
+# minimalist runtime
+FROM            alpine:3.10
+COPY            --from=builder /go/bin/number-to-words /bin/
+ENTRYPOINT      ["/bin/number-to-words"]
+CMD             []

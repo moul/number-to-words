@@ -2,20 +2,21 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path"
 	"strconv"
 	"strings"
 
-	"github.com/moul/number-to-words"
 	"github.com/urfave/cli"
+	ntw "moul.io/number-to-words"
 )
 
 func main() {
 	app := cli.NewApp()
 	app.Name = path.Base(os.Args[0])
 	app.Author = "Manfred Touron"
-	app.Email = "https://github.com/moul/number-to-words"
+	app.Email = "https://moul.io/number-to-words"
 	app.Version = ntw.Version
 	app.Usage = "number to number"
 	// FIXME: enable autocomplete
@@ -36,7 +37,10 @@ func main() {
 		},
 	}
 	app.Action = convert
-	app.Run(os.Args)
+	if err := app.Run(os.Args); err != nil {
+		log.Printf("error: %v", err)
+		os.Exit(1)
+	}
 }
 
 func convert(c *cli.Context) error {
@@ -60,7 +64,7 @@ func convert(c *cli.Context) error {
 	} else {
 		language := ntw.Languages.Lookup(lang)
 		if language == nil {
-			return fmt.Errorf("Unknown language: %s", lang)
+			return fmt.Errorf("unknown language: %s", lang)
 		}
 		outputs = append(outputs, language.IntegerToWords(input))
 	}

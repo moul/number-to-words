@@ -9,15 +9,15 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	ntw "github.com/moul/number-to-words"
 	"github.com/urfave/cli"
+	ntw "moul.io/number-to-words"
 )
 
 func main() {
 	app := cli.NewApp()
 	app.Name = path.Base(os.Args[0])
 	app.Author = "Manfred Touron"
-	app.Email = "https://github.com/moul/number-to-words"
+	app.Email = "https://moul.io/number-to-words"
 	app.Version = ntw.Version
 	app.Usage = "number to number web API"
 
@@ -33,7 +33,10 @@ func main() {
 		},
 	}
 	app.Action = server
-	app.Run(os.Args)
+	if err := app.Run(os.Args); err != nil {
+		log.Printf("error: %v", err)
+		os.Exit(1)
+	}
 }
 
 func server(c *cli.Context) error {
