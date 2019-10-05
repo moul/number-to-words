@@ -7,13 +7,13 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func ExampleIntegerToIdId() {
-	fmt.Println(IntegerToIdId(42))
+func ExampleIntegerToIDID() {
+	fmt.Println(IntegerToIDID(42))
 	// Output: empat puluh dua
 }
 
-func TestIntegerToIdId(t *testing.T) {
-	Convey("Testing IntegerToIdId()", t, FailureContinues, func() {
+func TestIntegerToIDID(t *testing.T) {
+	Convey("Testing IntegerToIDID()", t, FailureContinues, func() {
 		testing := map[int]string{
 			0:             "nol",
 			1:             "satu",
@@ -66,10 +66,10 @@ func TestIntegerToIdId(t *testing.T) {
 			2935174315119: "dua triliun sembilan ratus tiga puluh lima milyar seratus tujuh puluh empat juta tiga ratus limabelas ribu seratus sembilanbelas",
 		}
 		for input, expectedOutput := range testing {
-			So(IntegerToIdId(input), ShouldEqual, expectedOutput)
+			So(IntegerToIDID(input), ShouldEqual, expectedOutput)
 		}
 
 		// testing negative values
-		So(IntegerToIdId(-1), ShouldEqual, "minus satu")
+		So(IntegerToIDID(-1), ShouldEqual, "minus satu")
 	})
 }

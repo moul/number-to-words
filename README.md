@@ -280,7 +280,7 @@ fmt.Println(ntw.IntegerToAegean(42)) // aegean (unicode)
 fmt.Println(ntw.IntegerToIrIr(42)) // iranian
 // Outputs: چهل و دو
 
-fmt.Println(ntw.IntegerToIdId(42)) // indonesian
+fmt.Println(ntw.IntegerToIDID(42)) // indonesian
 // Outputs: empat puluh dua
 ```
 

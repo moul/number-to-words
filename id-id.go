@@ -12,12 +12,12 @@ func init() {
 		Aliases: []string{"id", "id-id", "id_ID", "indonesian"},
 		Flag:    "🇮🇩",
 
-		IntegerToWords: IntegerToIdId,
+		IntegerToWords: IntegerToIDID,
 	}
 }
 
-// IntegerToIdId converts an integer to Indonesian words
-func IntegerToIdId(input int) string {
+// IntegerToIDID converts an integer to Indonesian words
+func IntegerToIDID(input int) string {
 	var indonesianMegas = []string{"", "ribu", "juta", "milyar", "triliun", "kuadriliun", "kuintiliun", "sekstiliun", "septiliun", "oktiliun", "noniliun", "desiliun", "undesiliun", "duodesiliun", "tredesiliun", "kuatuordesiliun"}
 	var indonesianUnits = []string{"", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan"}
 	var indonesianTens = []string{"", "sepuluh", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"}
