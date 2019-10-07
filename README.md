@@ -26,6 +26,7 @@
 * Polish / Poland [pl-pl] 🇵🇱
 * Russian / Russia [ru-ru] 🇷🇺
 * Iranian / Iran [ir-ir] 🇮🇷
+* Indonesian / Indonesia [id-id] 🇮🇩
 
 * Roman Numbers
 * Roman Numbers (with Unicode) Ⅷ
@@ -76,6 +77,9 @@ $ number-to-words --lang=aegean 42
 
 $ number-to-words --lang=ir 42
 چهل و دو
+
+$ number-to-words --lang=id 42
+empat puluh dua
 ```
 
 default language is english
@@ -101,6 +105,7 @@ quarenta e dois
 XLII
 𐄓𐄈
 چهل و دو
+empat puluh dua
 
 $ number-to-words --lang=all 1
 one
@@ -115,6 +120,7 @@ um
 I
 𐄇
 یک
+satu
 
 $ number-to-words --lang=all 1337
 one thousand three hundred thirty-seven
@@ -129,6 +135,7 @@ mil trezentos e trinta e sete
 MCCCXXXVII
 𐄢𐄛𐄒𐄍
 یک هزار سیصد سی و هفت
+seribu tiga ratus tiga puluh tujuh
 
 $ number-to-words --lang=all 1234567890
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
@@ -141,6 +148,7 @@ en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta
 bir milyar iki yüz otuz dört milyon beş yüz altmış yedi bin sekiz yüz doksan
 mil milhões duzentos e trinta e quatro milhões quinhentos e sessenta e sete mil oitocentos e noventa
 یک میلیارد دویست سی و چهار میلیون پانصد شصد و هفت هزار هشتصد نود
+satu milyar dua ratus tiga puluh empat juta lima ratus enam puluh tujuh ribu delapan ratus sembilan puluh
 
 $ number-to-words --lang=all 1000000000000
 one trillion
@@ -153,6 +161,7 @@ bir trilyon
 um bilião
 too big number
 too big number
+satu triliun
 ```
 
 ### `--help`
@@ -190,6 +199,7 @@ AVAILABLE LANGUAGES:
    Portuguese (Portugal) (pt, pt-pt, pt_PT, portuguese) 🇵🇹
    Polish (Poland) (pl, pl-pl, pl_PL, polish) 🇵🇱
    Iranian (Iran) (ir, ir-ir, ir_IR, Iran) 🇮🇷
+   Indonesian (Indonesia) (id, id-id, id_ID, indonesian) 🇮🇩
    Roman Numbers (roman)
 ```
 
@@ -269,6 +279,9 @@ fmt.Println(ntw.IntegerToAegean(42)) // aegean (unicode)
 
 fmt.Println(ntw.IntegerToIrIr(42)) // iranian
 // Outputs: چهل و دو
+
+fmt.Println(ntw.IntegerToIDID(42)) // indonesian
+// Outputs: empat puluh dua
 ```
 
 ## Install
