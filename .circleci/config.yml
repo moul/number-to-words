@@ -4,7 +4,7 @@ executors:
   golang:
     working_directory: /go/src/moul.io/number-to-words
     docker:
-      - image: circleci/golang:1.12
+      - image: circleci/golang:1.13
     environment:
       GO111MODULE: "on"
       DOCKER_IMAGE: moul/number-to-words
@@ -15,11 +15,11 @@ executors:
 
 orbs:
   codecov: codecov/codecov@1.0.5
-  moul: moul/build@1.5.0
+  moul: moul/build@1.13.0
   retry: moul/retry@0.6.0
   docker: circleci/docker@0.5.13
   #dl: moul/dl@1.7.0
-  tools: gotest/tools@0.0.9
+  tools: gotest/tools@0.0.12
 
 jobs:
   go-build:
