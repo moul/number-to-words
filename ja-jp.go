@@ -61,7 +61,7 @@ func IntegerToJaJp(input int) string {
 	}
 
 	// iterate over quadruplet
-	for idx := len(quadruplets) -1; idx >= 0; idx-- {
+	for idx := len(quadruplets) - 1; idx >= 0; idx-- {
 		quadruplet := quadruplets[idx]
 
 		// nothing todo for empty quadruplet
