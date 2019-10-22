@@ -15,7 +15,7 @@ func integerToQuadruplets(number int) []int {
 	quadruplet := []int{}
 
 	for number > 0 {
-		quadruplet = append(quadruplet, number % 10000)
+		quadruplet = append(quadruplet, number%10000)
 		number = number / 10000
 	}
 	return quadruplet
