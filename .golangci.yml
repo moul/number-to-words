@@ -19,9 +19,8 @@ linters:
   disable-all: true
   enable:
     - goconst
-    - misspell
+    #- misspell # should stay disabled
     - deadcode
-    - misspell
     - structcheck
     - errcheck
     - unused
