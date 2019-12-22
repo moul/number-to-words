@@ -3,6 +3,8 @@ package ntw
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func ExampleIntegerToFrBe() {
@@ -86,10 +88,7 @@ func TestIntegerToFrBe(t *testing.T) {
 	for input, expectedOutput := range tests {
 		name := fmt.Sprintf("%d", input)
 		t.Run(name, func(t *testing.T) {
-			output := IntegerToFrBe(input)
-			if expectedOutput != output {
-				t.Fatalf("Expected %q, got %q.", expectedOutput, output)
-			}
+			assert.Equal(t, expectedOutput, IntegerToFrBe(input))
 		})
 	}
 }

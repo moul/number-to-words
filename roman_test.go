@@ -3,6 +3,8 @@ package ntw
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func ExampleIntegerToRoman() {
@@ -70,10 +72,7 @@ func TestIntegerToRoman(t *testing.T) {
 	for input, expectedOutput := range tests {
 		name := fmt.Sprintf("%d", input)
 		t.Run(name, func(t *testing.T) {
-			output := IntegerToRoman(input)
-			if expectedOutput != output {
-				t.Fatalf("Expected %q, got %q.", expectedOutput, output)
-			}
+			assert.Equal(t, expectedOutput, IntegerToRoman(input))
 		})
 	}
 }
@@ -136,10 +135,7 @@ func TestIntegerToRomanUnicode(t *testing.T) {
 	for input, expectedOutput := range tests {
 		name := fmt.Sprintf("%d", input)
 		t.Run(name, func(t *testing.T) {
-			output := IntegerToRomanUnicode(input)
-			if expectedOutput != output {
-				t.Fatalf("Expected %q, got %q.", expectedOutput, output)
-			}
+			assert.Equal(t, expectedOutput, IntegerToRomanUnicode(input))
 		})
 	}
 }

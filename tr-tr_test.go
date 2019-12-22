@@ -3,6 +3,8 @@ package ntw
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func ExampleIntegerToTrTr() {
@@ -66,10 +68,7 @@ func TestIntegerToTrTr(t *testing.T) {
 	for input, expectedOutput := range tests {
 		name := fmt.Sprintf("%d", input)
 		t.Run(name, func(t *testing.T) {
-			output := IntegerToTrTr(input)
-			if expectedOutput != output {
-				t.Fatalf("Expected %q, got %q.", expectedOutput, output)
-			}
+			assert.Equal(t, expectedOutput, IntegerToTrTr(input))
 		})
 	}
 }
