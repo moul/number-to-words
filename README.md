@@ -27,6 +27,7 @@
 * Russian / Russia [ru-ru] 🇷🇺
 * Iranian / Iran [ir-ir] 🇮🇷
 * Indonesian / Indonesia [id-id] 🇮🇩
+* Japanese / Japan [ja-jp] 🇯🇵
 
 * Roman Numbers
 * Roman Numbers (with Unicode) Ⅷ

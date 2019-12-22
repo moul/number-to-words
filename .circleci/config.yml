@@ -8,4 +8,7 @@ workflows:
     jobs:
       - moul/golang-build:
           gopkg: moul.io/number-to-words
+      - moul/golang-build:
+          gopkg: moul.io/number-to-words
+          tag: '1.12'
       - moul/docker-build
