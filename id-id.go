@@ -21,7 +21,7 @@ func IntegerToIDID(input int) string {
 	var indonesianMegas = []string{"", "ribu", "juta", "milyar", "triliun", "kuadriliun", "kuintiliun", "sekstiliun", "septiliun", "oktiliun", "noniliun", "desiliun", "undesiliun", "duodesiliun", "tredesiliun", "kuatuordesiliun"}
 	var indonesianUnits = []string{"", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan"}
 	var indonesianTens = []string{"", "sepuluh", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"}
-	var indonesianTeens = []string{"sepuluh", "sebelas", "duabelas", "tigabelas", "empatblas", "limabelas", "enambelas", "tujuhbelas", "delapanbelas", "sembilanbelas"}
+	var indonesianTeens = []string{"sepuluh", "sebelas", "dua belas", "tiga belas", "empat belas", "lima belas", "enam belas", "tujuh belas", "delapan belas", "sembilan belas"}
 
 	//log.Printf("Input: %d\n", input)
 	words := []string{}
