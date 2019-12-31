@@ -1,3 +1,6 @@
+---
+title: Number To Words README
+---
 # number-to-words
 
 :smile: `number-to-words` converts a number to words
@@ -14,25 +17,27 @@
 
 ## Supported languages
 
-* American English / United States of America [en] 🇺🇸
-* Français / France [fr] 🇫🇷
-* Français (Belge) / Belgium [fr-be] 🇧🇪
-* Italiano / Italy [it] 🇮🇹
-* Spanish / Spain [es] 🇪🇸
-* Swedish / Sweden [se] 🇸🇪
-* Dutch / Netherlands [nl] 🇳🇱
-* Turkish / Turkey [tr] 🇹🇷
-* Portuguese / Portugal [pt-pt] 🇵🇹
-* Polish / Poland [pl-pl] 🇵🇱
-* Russian / Russia [ru-ru] 🇷🇺
-* Iranian / Iran [ir-ir] 🇮🇷
-* Indonesian / Indonesia [id-id] 🇮🇩
-* Japanese / Japan [ja-jp] 🇯🇵
 
-* Roman Numbers
-* Roman Numbers (with Unicode) Ⅷ
-* Aegean numerals
 
+| Code            | Flag | Language                         | Main Region | 42               |
+| --------------- | ---- | -------------------------------- | ----------- | ---------------- |
+| `en`, `en-us`   | 🇺🇸   | American English                 | USA         | forty-two        |
+| `fr`, `fr-fr`   | 🇫🇷   | French, Français                 | France      | quarante-deux    |
+| `it`, `it-it`   | 🇮🇹   | Italiano                         | Italy       | quarantadue      |
+| `es`, `es-es`   | 🇪🇸   | European Spanish                 | Spain       | cuarenta y dos   |
+| `se`, `sv-se`   | 🇸🇪   | Swedish                          | Sweden      | fyrtio-två       |
+| `nl`, `nl-nl`   | 🇳🇱   | Dutch                            | Netherlands | tweeenveertig    |
+| `tr`, `tr-tr`   | 🇹🇷   | Turkish                          | Turkey      | kırk iki         |
+| `pt`, `pt-pt`   | 🇵🇹   | Portuguese                       | Portugal    | quarenta e dois  |
+| `pl`, `pl-pl`   | 🇵🇱   | Polish                           | Poland      | czterdzieści dwa |
+| `ru`, `ru-ru`   | 🇷🇺   | Russian                          | Russia      | сорок два        |
+| `ir`, `ir-ir`   | 🇮🇷   | Iranian                          | Iran        | چهل و دو         |
+| `id`, `id-id`   | 🇮🇩   | Indonesian                       | Indonesia   | empat puluh dua  |
+| `jp`, `ja-jp`   | 🇯🇵   | Japanese                         | Japan       | 四十二           |
+| `fr-be`         | 🇧🇪   | Belgian French, Français (Belge) | Belgium     | quarante-deux    |
+| `roman`         |      | Roman Numbers                    |             | XLII             |
+| `roman-unicode` |      | Roman (with Unicode)             |             | ⅩⅬⅡ              |
+| `aegean`        |      | Aegean Numerals                  |             | 𐄓𐄈               |
 
 ## CLI usage
 
