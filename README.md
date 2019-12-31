@@ -1,6 +1,3 @@
----
-title: Number To Words README
----
 # number-to-words
 
 :smile: `number-to-words` converts a number to words
