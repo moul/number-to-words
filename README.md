@@ -32,6 +32,7 @@
 | `id`, `id-id`   | 🇮🇩   | Indonesian                       | Indonesia   | empat puluh dua  |
 | `jp`, `ja-jp`   | 🇯🇵   | Japanese                         | Japan       | 四十二           |
 | `fr-be`         | 🇧🇪   | Belgian French, Français (Belge) | Belgium     | quarante-deux    |
+| `uk`, `uk-ua`   | 🇺🇦   | Ukrainian                        | Ukraine     | сорок два        |
 | `roman`         |      | Roman Numbers                    |             | XLII             |
 | `roman-unicode` |      | Roman (with Unicode)             |             | ⅩⅬⅡ              |
 | `aegean`        |      | Aegean Numerals                  |             | 𐄓𐄈               |
