@@ -23,29 +23,27 @@ func IntegerToDaDk(input int) string {
 	var danishTens = []string{"", "ti", "tyve", "tredive", "fyrre", "halvtreds", "tres", "halvfjerds", "firs", "halvfems"}
 	var danishTeens = []string{"ti", "elleve", "tolv", "tretten", "fjorten", "femten", "seksten", "sytten", "atten", "nitten"}
 
-	//log.Printf("Input: %d\n", input)
 	words := []string{}
 
+	// zero is a special case
+	if input == 0 {
+		return "nul"
+	}
+
+	// add minus if the number is negative
 	if input < 0 {
 		words = append(words, "minus")
 		input *= -1
 	}
 
-	// split integer in triplets
+	// split integer into triplets
 	triplets := integerToTriplets(input)
-	//log.Printf("Triplets: %v\n", triplets)
-
-	// zero is a special case
-	if len(triplets) == 0 {
-		return "nul"
-	}
 
 	// iterate over triplets
 	for idx := len(triplets) - 1; 0 <= idx; idx-- {
 		triplet := triplets[idx]
-		//log.Printf("Triplet: %d (idx=%d)\n", triplet, idx)
 
-		// nothing todo for empty triplet
+		// nothing to do with an empty triplet
 		if triplet == 0 {
 			continue
 		}
@@ -54,10 +52,10 @@ func IntegerToDaDk(input int) string {
 		hundreds := triplet / 100 % 10
 		tens := triplet / 10 % 10
 		units := triplet % 10
-		// log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
+
 		switch hundreds {
 		case 0:
-			// Nothing
+			// nothing
 			break
 		case 1:
 			words = append(words, "et hundrede")
@@ -99,7 +97,7 @@ func IntegerToDaDk(input int) string {
 
 	tripletEnd:
 		// mega
-		isPlural := hundreds == 0 && tens == 0 && units == 1
+		isPlural := 1 < triplet
 		if mega := danishMegas[idx]; mega != "" {
 			if isPlural || mega == "tusind" {
 				words = append(words, mega)
@@ -109,6 +107,5 @@ func IntegerToDaDk(input int) string {
 		}
 	}
 
-	//log.Printf("Words length: %d\n", len(words))
 	return strings.Join(words, " ")
 }
