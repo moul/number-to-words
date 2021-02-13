@@ -18,10 +18,10 @@ func init() {
 
 // IntegerToDaDk converts an integer to Danish words
 func IntegerToDaDk(input int) string {
-	var danishMegas = []string{"", "tusind", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "kvadrillion", "kvadrilliard", "kvintillion", "kvintilliard", "sekstillion", "sekstilliard", "septillion", "septiliard"}
-	var danishUnits = []string{"", "en", "to", "tre", "fire", "fem", "seks", "syv", "otte", "ni"}
-	var danishTens = []string{"", "ti", "tyve", "tredive", "fyrre", "halvtreds", "tres", "halvfjerds", "firs", "halvfems"}
-	var danishTeens = []string{"ti", "elleve", "tolv", "tretten", "fjorten", "femten", "seksten", "sytten", "atten", "nitten"}
+	danishMegas := []string{"", "tusind", "million", "milliard", "billion", "billiard", "trillion", "trilliard", "kvadrillion", "kvadrilliard", "kvintillion", "kvintilliard", "sekstillion", "sekstilliard", "septillion", "septiliard"}
+	danishUnits := []string{"", "en", "to", "tre", "fire", "fem", "seks", "syv", "otte", "ni"}
+	danishTens := []string{"", "ti", "tyve", "tredive", "fyrre", "halvtreds", "tres", "halvfjerds", "firs", "halvfems"}
+	danishTeens := []string{"ti", "elleve", "tolv", "tretten", "fjorten", "femten", "seksten", "sytten", "atten", "nitten"}
 
 	words := []string{}
 
@@ -49,63 +49,69 @@ func IntegerToDaDk(input int) string {
 		}
 
 		// three-digits
+		mega := danishMegas[idx]
 		hundreds := triplet / 100 % 10
 		tens := triplet / 10 % 10
 		units := triplet % 10
 
-		switch hundreds {
-		case 0:
-			// nothing
-			break
-		case 1:
-			words = append(words, "et hundrede")
-			break
-		default:
-			words = append(words, danishUnits[hundreds], "hundrede")
-			break
+		hundredsInWords := hundredsToDaDk(hundreds, danishUnits)
+		if hundredsInWords != "" {
+			words = append(words, hundredsInWords)
 		}
 
-		if tens == 0 && units == 0 {
-			goto tripletEnd
-		}
-
-		if 0 < hundreds {
-			words = append(words, "og")
-		}
-
-		switch tens {
-		case 0:
-			mega := danishMegas[idx]
-			if mega == "tusind" && units == 1 {
-				words = append(words, "et")
-			} else {
-				words = append(words, danishUnits[units])
+		if tens != 0 || units != 0 {
+			if 0 < hundreds {
+				words = append(words, "og")
 			}
-			break
-		case 1:
-			words = append(words, danishTeens[units])
-			break
-		default:
-			if 0 < units {
-				word := fmt.Sprintf("%sog%s", danishUnits[units], danishTens[tens])
-				words = append(words, word)
-			} else {
-				words = append(words, danishTens[tens])
-			}
-			break
+
+			tensAndUnits := tensAndUnitsToDaDk(mega, tens, units, danishUnits, danishTeens, danishTens)
+			words = append(words, tensAndUnits)
 		}
 
-	tripletEnd:
-		// mega
-		isPlural := 1 < triplet
-		if mega := danishMegas[idx]; mega != "" {
-			if isPlural || mega == "tusind" {
-				words = append(words, mega)
-			} else {
-				words = append(words, mega+"er")
-			}
+		isSingular := triplet == 1
+		megas := megasToDaDk(isSingular, mega)
+		if megas != "" {
+			words = append(words, megas)
 		}
 	}
 
 	return strings.Join(words, " ")
+}
+
+func hundredsToDaDk(hundreds int, danishUnits []string) string {
+	switch hundreds {
+	case 0:
+		return ""
+	case 1:
+		return "et hundrede"
+	default:
+		return danishUnits[hundreds] + " hundrede"
+	}
+}
+
+func tensAndUnitsToDaDk(mega string, tens int, units int, danishUnits []string, danishTeens []string, danishTens []string) string {
+	switch tens {
+	case 0:
+		if mega == "tusind" && units == 1 {
+			return "et"
+		}
+		return danishUnits[units]
+	case 1:
+		return danishTeens[units]
+	default:
+		if 0 < units {
+			return fmt.Sprintf("%sog%s", danishUnits[units], danishTens[tens])
+		}
+		return danishTens[tens]
+	}
+}
+
+func megasToDaDk(isSingular bool, mega string) string {
+	if mega != "" {
+		if isSingular || mega == "tusind" {
+			return mega
+		}
+		return mega + "er"
+	}
+	return ""
 }
