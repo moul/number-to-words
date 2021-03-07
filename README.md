@@ -22,6 +22,7 @@
 | `fr`, `fr-fr`   | 🇫🇷   | French, Français                 | France      | quarante-deux    |
 | `it`, `it-it`   | 🇮🇹   | Italiano                         | Italy       | quarantadue      |
 | `es`, `es-es`   | 🇪🇸   | European Spanish                 | Spain       | cuarenta y dos   |
+| `dk`, `da-dk`   | 🇩🇰   | Danish                          | Denmark      | toogfyrre       |
 | `se`, `sv-se`   | 🇸🇪   | Swedish                          | Sweden      | fyrtio-två       |
 | `nl`, `nl-nl`   | 🇳🇱   | Dutch                            | Netherlands | tweeenveertig    |
 | `tr`, `tr-tr`   | 🇹🇷   | Turkish                          | Turkey      | kırk iki         |
@@ -55,6 +56,9 @@ cuarenta y dos
 $ number-to-words --lang=en 42
 forty-two
 
+$ number-to-words --lang=dk 42
+toogfyrre
+
 $ number-to-words --lang=se 42
 fyrtio-två
 
@@ -86,14 +90,14 @@ $ number-to-words --lang=id 42
 empat puluh dua
 ```
 
-default language is english
+The default language is English
 
 ```console
 $ number-to-words 42
 forty-two
 ```
 
-print every supported language at once
+Print different numbers in every supported language
 
 ```console
 $ number-to-words --lang=all 42
@@ -102,6 +106,7 @@ quarante-deux
 quarante-deux
 quarantadue
 cuarenta y dos
+toogfyrre
 fyrtio-två
 tweeenveertig
 kırk iki
@@ -118,6 +123,7 @@ un
 uno
 uno
 en
+en
 één
 bir
 um
@@ -132,6 +138,7 @@ mille trois cent trente-sept
 mille trois cent trente-sept
 uno mille trecento trentasette
 un mil trescientos treinta y siete
+et tusind tre hundrede og syvogtredive
 en tusen tre hundra trettio-sju
 éénduizend driehonderdzevenendertig
 bin üç yüz otuz yedi
@@ -147,6 +154,7 @@ un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit 
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent nonante
 uno miliardo duecento trentaquattro milione cinquecento sessentasette mille ottocento novanta
 un mil millones doscientos treinta y cuatro millones quinientos sesenta y siete mil ochocientos noventa
+en milliard to hundrede og firetredive millioner fem hundrede og syvogtres tusinde ottehundrede og halvfems
 en miljarder två hundra trettio-fyra miljoner fem hundra sextio-sju tusen åtta hundra nittio
 één miljard tweehonderdvierendertig miljoen vijfhonderdzevenenzestigduizend achthonderdnegentig
 bir milyar iki yüz otuz dört milyon beş yüz altmış yedi bin sekiz yüz doksan
@@ -159,6 +167,7 @@ one trillion
 un billion
 uno triliardo
 un billón
+en billion
 en biljoner
 één biljoen
 bir trilyon
@@ -196,6 +205,7 @@ AVAILABLE LANGUAGES:
    French (fr, fr-fr, fr_FR, french) 🇫🇷
    Italian (it, it-it, it_IT, italian) 🇮🇹
    Roman Numbers (with Unicode) (roman-unicode)
+   Danish (da-dk, da_DK, danish) 🇩🇰
    Swedish (sv-se, sv_SE, swedish) 🇸🇪
    Aegean (aegean)
    American English (en, en-us, es_US, american, english) 🇺🇸  *default*
@@ -257,6 +267,9 @@ fmt.Println(ntw.IntegerToItIt(42)) // italian
 fmt.Println(ntw.IntegerToEsEs(42)) // spanish
 // Outputs: cuarenta y dos
 
+fmt.Println(ntw.IntegerToDaDk(42)) // danish
+// Outputs: toogfyrre
+
 fmt.Println(ntw.IntegerToSvSe(42)) // swedish
 // Outputs: fyrtio-två
 
@@ -292,20 +305,24 @@ fmt.Println(ntw.IntegerToIDID(42)) // indonesian
 
 #### Using Golang
 
-1. install and configure go on your host
+1. install and configure Go on your host
 2. get and build: `go get moul.io/number-to-words/cmd/number-to-words`
 3. profit: `$GOPATH/bin/number-to-words 42`
 
 #### Using Homebrew
 
-1. install homebrew
+1. install Homebrew
 2. install number-to-words: `brew install moul/moul/number-to-words`
 3. profit: `number-to-words 42`
 
 #### Using Docker
 
-1. install and configure docker on your host
+1. install and configure Docker on your host
 2. profit: `docker run --rm moul/number-to-words 42`
+
+## Test
+
+1. profit: `make`
 
 ## License
 
