@@ -7,4 +7,5 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/stretchr/testify v1.6.1
 	github.com/urfave/cli v1.22.5
+	golang.org/x/tools v0.1.0
 )
