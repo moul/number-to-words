@@ -16,25 +16,24 @@ func init() {
 	}
 }
 
-// IntegerToEnUs converts an integer to American English words
+// IntegerToDeDe converts an integer to German words
 func IntegerToDeDe(input int) string {
-	var deMegas = []string{"", "tausend", "million", "milliarde", "billion", "billiarde", "trillion", "sextillion", "siebentausend", "oktillion", "nichtmillion", "dezillion", "undezillion", "duodezillion", "tredemillion", "quattuordeillion"}
-
+	var deMegasSingular = []string{"", "eintausend", "eine Million", "eine Milliarde", "eine Billion", "eine Billiarde", "eine Trillion", "eine Trilliarde", "eine Quadrillion", "eine Quadrilliarde", "eine Quintillion", "eine Quintilliarde", "eine Sextillion", "eine Sextilliarde", "eine Septillion", "eine Septilliarde"}
+	var deMegasPlural = []string{"", "tausend", "Millionen", "Milliarden", "Billionen", "Billiarden", "Trillionen", "Trilliarden", "Quadrillionen", "Quadrilliarden", "Quintillionen", "Quintilliarden", "Sextillionen", "Sextilliarden", "Septillionen", "Septilliarden"}
 	var deUnits = []string{"", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"}
+	var deUnitPrefixes = []string{"", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"}
 	var deTens = []string{"", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"}
-	var deTeens = []string{"zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechszehn", "siebzehn", "achtzehn", "neunzehn"}
+	var deTeens = []string{"zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"}
 
-	//log.Printf("Input: %d\n", input)
 	words := []string{}
 
 	if input < 0 {
-		words = append(words, "minus")
+		words = append(words, "minus ")
 		input *= -1
 	}
 
 	// split integer in triplets
 	triplets := integerToTriplets(input)
-	//log.Printf("Triplets: %v\n", triplets)
 
 	// zero is a special case
 	if len(triplets) == 0 {
@@ -44,20 +43,36 @@ func IntegerToDeDe(input int) string {
 	// iterate over triplets
 	for idx := len(triplets) - 1; idx >= 0; idx-- {
 		triplet := triplets[idx]
-		//log.Printf("Triplet: %d (idx=%d)\n", triplet, idx)
 
-		// nothing todo for empty triplet
+		// nothing to do for empty triplet
 		if triplet == 0 {
 			continue
+		}
+
+		var mega string
+		if triplet == 1 && idx != 0 { // handle singular megas
+			mega = deMegasSingular[idx]
+
+			if idx > 1 { // Million and above, megas need separator
+				mega = fmt.Sprintf(" %s ", mega)
+			}
+
+			words = append(words, mega)
+			continue
+		}
+
+		mega = deMegasPlural[idx]
+
+		if idx > 1 { // Million and above, megas need separator
+			mega = fmt.Sprintf(" %s ", mega)
 		}
 
 		// three-digits
 		hundreds := triplet / 100 % 10
 		tens := triplet / 10 % 10
 		units := triplet % 10
-		//log.Printf("Hundreds:%d, Tens:%d, Units:%d\n", hundreds, tens, units)
 		if hundreds > 0 {
-			words = append(words, deUnits[hundreds], "hundert")
+			words = append(words, deUnitPrefixes[hundreds], "hundert")
 		}
 
 		if tens == 0 && units == 0 {
@@ -72,7 +87,7 @@ func IntegerToDeDe(input int) string {
 			break
 		default:
 			if units > 0 {
-				word := fmt.Sprintf("%s-%s", deTens[tens], deUnits[units])
+				word := fmt.Sprintf("%sund%s", deUnitPrefixes[units], deTens[tens])
 				words = append(words, word)
 			} else {
 				words = append(words, deTens[tens])
@@ -82,11 +97,16 @@ func IntegerToDeDe(input int) string {
 
 	tripletEnd:
 		// mega
-		if mega := deMegas[idx]; mega != "" {
+		if mega != "" {
 			words = append(words, mega)
 		}
 	}
 
-	//log.Printf("Words length: %d\n", len(words))
-	return strings.Join(words, " ")
+	joint := strings.Join(words, "")
+
+	thousandFix := strings.ReplaceAll(joint, "einstausend", "eintausend")
+	hundredFix := strings.ReplaceAll(thousandFix, "einshundert", "einhundert")
+	paddingFix := strings.TrimSpace(hundredFix)
+
+	return paddingFix
 }

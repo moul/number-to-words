@@ -50,7 +50,7 @@ func TestIntegerToDeDe(t *testing.T) {
 		2000000:       "zwei Millionen",
 		4000000:       "vier Millionen",
 		5000000:       "fünf Millionen",
-		100100100:     "einhundert Millionen einhundertausendeinhundert",
+		100100100:     "einhundert Millionen einhunderttausendeinhundert",
 		500500500:     "fünfhundert Millionen fünfhunderttausendfünfhundert",
 		606606606:     "sechshundertsechs Millionen sechshundertsechstausendsechshundertsechs",
 		999000000:     "neunhundertneunundneunzig Millionen",
@@ -68,7 +68,7 @@ func TestIntegerToDeDe(t *testing.T) {
 	for input, expectedOutput := range tests {
 		name := fmt.Sprintf("%d", input)
 		t.Run(name, func(t *testing.T) {
-			assert.Equal(t, expectedOutput, IntegerToEnUs(input))
+			assert.Equal(t, expectedOutput, IntegerToDeDe(input))
 		})
 	}
 }
