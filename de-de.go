@@ -21,7 +21,6 @@ func IntegerToDeDe(input int) string {
 	var deMegasSingular = []string{"", "eintausend", "eine Million", "eine Milliarde", "eine Billion", "eine Billiarde", "eine Trillion", "eine Trilliarde", "eine Quadrillion", "eine Quadrilliarde", "eine Quintillion", "eine Quintilliarde", "eine Sextillion", "eine Sextilliarde", "eine Septillion", "eine Septilliarde"}
 	var deMegasPlural = []string{"", "tausend", "Millionen", "Milliarden", "Billionen", "Billiarden", "Trillionen", "Trilliarden", "Quadrillionen", "Quadrilliarden", "Quintillionen", "Quintilliarden", "Sextillionen", "Sextilliarden", "Septillionen", "Septilliarden"}
 	var deUnits = []string{"", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"}
-	var deUnitPrefixes = []string{"", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"}
 	var deTens = []string{"", "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig"}
 	var deTeens = []string{"zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"}
 
@@ -71,8 +70,10 @@ func IntegerToDeDe(input int) string {
 		hundreds := triplet / 100 % 10
 		tens := triplet / 10 % 10
 		units := triplet % 10
-		if hundreds > 0 {
-			words = append(words, deUnitPrefixes[hundreds], "hundert")
+		if hundreds == 1 {
+			words = append(words, "einhundert")
+		} else if hundreds > 0 {
+			words = append(words, deUnits[hundreds], "hundert")
 		}
 
 		if tens == 0 && units == 0 {
@@ -86,8 +87,11 @@ func IntegerToDeDe(input int) string {
 			words = append(words, deTeens[units])
 			break
 		default:
-			if units > 0 {
-				word := fmt.Sprintf("%sund%s", deUnitPrefixes[units], deTens[tens])
+			if units == 1 {
+				word := fmt.Sprintf("%sund%s", "ein", deTens[tens])
+				words = append(words, word)
+			} else if units > 0 {
+				word := fmt.Sprintf("%sund%s", deUnits[units], deTens[tens])
 				words = append(words, word)
 			} else {
 				words = append(words, deTens[tens])
@@ -103,10 +107,7 @@ func IntegerToDeDe(input int) string {
 	}
 
 	joint := strings.Join(words, "")
-
-	thousandFix := strings.ReplaceAll(joint, "einstausend", "eintausend")
-	hundredFix := strings.ReplaceAll(thousandFix, "einshundert", "einhundert")
-	paddingFix := strings.TrimSpace(hundredFix)
+	paddingFix := strings.TrimSpace(joint)
 
 	return paddingFix
 }
