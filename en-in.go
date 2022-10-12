@@ -16,7 +16,7 @@ func init() {
 	}
 }
 
-// IntegerToEnUs converts an integer to American English words
+// IntegerToEnIn converts an integer to Indian English words
 func IntegerToEnIn(input int) string {
 	var indianMegas = []string{"", "thousand", "lakh", "crore", "arab", "kharab", "neel", "padma", "shankh", "mahashankh"}
 	var indianUnits = []string{"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
@@ -31,7 +31,7 @@ func IntegerToEnIn(input int) string {
 		input *= -1
 	}
 
-	// split integer in triplets
+	// split integer in hybrids
 	var hybrids []int
 	hybrids = integerToDHybrid(input)
 
@@ -43,12 +43,12 @@ func IntegerToEnIn(input int) string {
 		return "zero"
 	}
 
-	// iterate over triplets
+	// iterate over hybrids
 	for idx := len(hybrids) - 1; idx >= 0; idx-- {
 		hybrid := hybrids[idx]
-		//log.Printf("hybrid: %d (idx=%d)\n", triplet, idx)
+		//log.Printf("hybrid: %d (idx=%d)\n", hybrid, idx)
 
-		// nothing todo for empty triplet
+		// nothing todo for empty hybrid
 		if hybrid == 0 {
 			continue
 		}

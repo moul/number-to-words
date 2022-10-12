@@ -151,6 +151,7 @@ MCCCXXXVII
 seribu tiga ratus tiga puluh tujuh
 
 $ number-to-words --lang=all 1234567890
+one arab twenty-three crore forty-five lakh sixty-seven thousand eight hundred ninety
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent nonante
@@ -206,6 +207,7 @@ AVAILABLE LANGUAGES:
    Belgian French (fr-be, fr_BE, belgian) 🇧🇪
    French (fr, fr-fr, fr_FR, french) 🇫🇷
    Italian (it, it-it, it_IT, italian) 🇮🇹
+   Indian English (in, en-in, indian) 🇮🇳
    Roman Numbers (with Unicode) (roman-unicode)
    Danish (da-dk, da_DK, danish) 🇩🇰
    Swedish (sv-se, sv_SE, swedish) 🇸🇪
