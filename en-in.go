@@ -2,7 +2,6 @@ package ntw
 
 import (
 	"fmt"
-	"log"
 	"strings"
 )
 
@@ -37,7 +36,7 @@ func IntegerToEnIn(input int) string {
 	hybrids = integerToDHybrid(input)
 
 	
-	log.Printf("Hybrids: %v\n", hybrids)
+	// log.Printf("Hybrids: %v\n", hybrids)
 
 	// zero is a special case
 	if len(hybrids) == 0 {
