@@ -14,15 +14,14 @@
 
 ## Supported languages
 
-
-
 | Code            | Flag | Language                         | Main Region | 42               |
 | --------------- | ---- | -------------------------------- | ----------- | ---------------- |
 | `en`, `en-us`   | 🇺🇸   | American English                 | USA         | forty-two        |
 | `fr`, `fr-fr`   | 🇫🇷   | French, Français                 | France      | quarante-deux    |
 | `it`, `it-it`   | 🇮🇹   | Italiano                         | Italy       | quarantadue      |
+| `in`, `en-in`   | 🇮🇳   | Indian English                   | India       | forty-two        |
 | `es`, `es-es`   | 🇪🇸   | European Spanish                 | Spain       | cuarenta y dos   |
-| `dk`, `da-dk`   | 🇩🇰   | Danish                          | Denmark      | toogfyrre       |
+| `dk`, `da-dk`   | 🇩🇰   | Danish                           | Denmark     | toogfyrre        |
 | `se`, `sv-se`   | 🇸🇪   | Swedish                          | Sweden      | fyrtio-två       |
 | `nl`, `nl-nl`   | 🇳🇱   | Dutch                            | Netherlands | tweeenveertig    |
 | `tr`, `tr-tr`   | 🇹🇷   | Turkish                          | Turkey      | kırk iki         |
@@ -49,6 +48,9 @@ nonante-deux
 
 $ number-to-words --lang=it 42
 quarantadue
+
+$ number-to-words --lang=in 42
+forty-two
 
 $ number-to-words --lang=es 42
 cuarenta y dos
@@ -149,6 +151,7 @@ MCCCXXXVII
 seribu tiga ratus tiga puluh tujuh
 
 $ number-to-words --lang=all 1234567890
+one arab twenty-three crore forty-five lakh sixty-seven thousand eight hundred ninety
 one billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent quatre-vingt-dix
 un milliard deux cent trente-quatre millions cinq cent soixante-sept mille huit cent nonante
@@ -204,6 +207,7 @@ AVAILABLE LANGUAGES:
    Belgian French (fr-be, fr_BE, belgian) 🇧🇪
    French (fr, fr-fr, fr_FR, french) 🇫🇷
    Italian (it, it-it, it_IT, italian) 🇮🇹
+   Indian English (in, en-in, indian) 🇮🇳
    Roman Numbers (with Unicode) (roman-unicode)
    Danish (da-dk, da_DK, danish) 🇩🇰
    Swedish (sv-se, sv_SE, swedish) 🇸🇪
