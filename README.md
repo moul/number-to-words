@@ -14,15 +14,14 @@
 
 ## Supported languages
 
-
-
 | Code            | Flag | Language                         | Main Region | 42               |
 | --------------- | ---- | -------------------------------- | ----------- | ---------------- |
 | `en`, `en-us`   | 🇺🇸   | American English                 | USA         | forty-two        |
 | `fr`, `fr-fr`   | 🇫🇷   | French, Français                 | France      | quarante-deux    |
 | `it`, `it-it`   | 🇮🇹   | Italiano                         | Italy       | quarantadue      |
+| `in`, `en-in`   | 🇮🇳   | Indian English                   | India       | forty-two        |
 | `es`, `es-es`   | 🇪🇸   | European Spanish                 | Spain       | cuarenta y dos   |
-| `dk`, `da-dk`   | 🇩🇰   | Danish                          | Denmark      | toogfyrre       |
+| `dk`, `da-dk`   | 🇩🇰   | Danish                           | Denmark     | toogfyrre        |
 | `se`, `sv-se`   | 🇸🇪   | Swedish                          | Sweden      | fyrtio-två       |
 | `nl`, `nl-nl`   | 🇳🇱   | Dutch                            | Netherlands | tweeenveertig    |
 | `tr`, `tr-tr`   | 🇹🇷   | Turkish                          | Turkey      | kırk iki         |
@@ -49,6 +48,9 @@ nonante-deux
 
 $ number-to-words --lang=it 42
 quarantadue
+
+$ number-to-words --lang=in 42
+forty-two
 
 $ number-to-words --lang=es 42
 cuarenta y dos
