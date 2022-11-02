@@ -16,6 +16,7 @@
 
 | Code            | Flag | Language                         | Main Region | 42               |
 | --------------- | ---- | -------------------------------- | ----------- | ---------------- |
+| `en`, `en-gb`   | 🇬🇧   | British English                  | UK          | forty-two        |
 | `en`, `en-us`   | 🇺🇸   | American English                 | USA         | forty-two        |
 | `fr`, `fr-fr`   | 🇫🇷   | French, Français                 | France      | quarante-deux    |
 | `it`, `it-it`   | 🇮🇹   | Italiano                         | Italy       | quarantadue      |
@@ -261,6 +262,9 @@ fmt.Println(ntw.IntegerToFrFr(42)) // french
 ```go
 fmt.Println(ntw.IntegerToFrBe(92)) // belgian french
 // Outputs: nonante-deux
+
+fmt.Println(ntw.IntegerToEnGb(42)) // british english
+// Outputs: forty-two
 
 fmt.Println(ntw.IntegerToEnUs(42)) // american english
 // Outputs: forty-two
