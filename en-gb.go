@@ -69,7 +69,6 @@ func IntegerToEnGb(input int) string {
 			words = append(words, englishUnits[units])
 		case 1:
 			words = append(words, englishTeens[units])
-			break
 		default:
 			if units > 0 {
 				word := fmt.Sprintf("%s-%s", englishTens[tens], englishUnits[units])
@@ -77,7 +76,6 @@ func IntegerToEnGb(input int) string {
 			} else {
 				words = append(words, englishTens[tens])
 			}
-			break
 		}
 
 	tripletEnd:
