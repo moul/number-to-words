@@ -9,7 +9,7 @@ COPY            . ./
 RUN             make install
 
 # minimalist runtime
-FROM            alpine:3.13.5
+FROM            alpine:3.17.2
 COPY            --from=builder /go/bin/number-to-words /bin/
 ENTRYPOINT      ["/bin/number-to-words"]
 CMD             []
