@@ -16,7 +16,7 @@ func TestIntegerToNlNl(t *testing.T) {
 	t.Parallel()
 
 	tests := map[int]string{
-		-1:            "minder één",
+		-1:            "min één",
 		0:             "nul",
 		1:             "één",
 		9:             "negen",
