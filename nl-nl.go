@@ -26,7 +26,7 @@ func IntegerToNlNl(input int) string {
 	words := []string{}
 
 	if input < 0 {
-		words = append(words, "minder")
+		words = append(words, "min")
 		input *= -1
 	}
 

@@ -27,7 +27,7 @@ func IntegerToDeDe(input int) string {
 	words := []string{}
 
 	if input < 0 {
-		words = append(words, "minus ")
+		words = append(words, "minus")
 		input *= -1
 	}
 
