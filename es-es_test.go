@@ -89,6 +89,7 @@ func TestIntegerToEsEs(t *testing.T) {
 		2000000:       "dos millones",
 		4000000:       "cuatro millones",
 		5000000:       "cinco millones",
+		9799001:       "nueve millones setecientos noventa y nueve mil uno",
 		100100100:     "ciento millones ciento mil ciento",
 		500500500:     "quinientos millones quinientos mil quinientos",
 		606606606:     "seiscientos seis millones seiscientos seis mil seiscientos seis",

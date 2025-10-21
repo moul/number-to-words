@@ -20,7 +20,7 @@ func init() {
 func IntegerToEsEs(input int) string {
 	var spanishMegasSingular = []string{"", "mil", "millón", "mil millones", "billón"}
 	var spanishMegasPlural = []string{"", "mil", "millones", "mil millones", "billones"}
-	var spanishUnitsAdjectives = []string{"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nove"}
+	var spanishUnitsAdjectives = []string{"", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"}
 	var spanishUnits = []string{"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"}
 	var spanishHundreds = []string{"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"}
 	var spanishTens = []string{"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"}
